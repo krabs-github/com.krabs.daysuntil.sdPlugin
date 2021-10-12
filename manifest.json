@@ -2,31 +2,39 @@
     "Actions": [
         {
             "Icon": "resources/images/actionIcon",
-            "Name": "Days Until",
+            "Name": "Days Until  ___",
             "States": [
                 {
                   "Image": "resources/images/actionDefaultImage",
-                  "Title": "",
-                  "TitleAlignment": "middle",
-                  "TitleColor": "#ffffff",
+                  "TitleAlignment": "bottom",
                   "FontFamily": "Arial",
-                  "FontSize": "9",
-                  "FontStyle": "Bold"
+                  "TitleColor": "#ffffff",
+                  "FontStyle": "Bold",
+                  "FontSize": "9"
+                },
+                {
+                  "Image": "resources/images/tday",
+                  "TitleAlignment": "bottom",
+                  "FontFamily": "Arial",
+                  "TitleColor": "#ffffff",
+                  "FontStyle": "Bold",
+                  "FontSize": "9"
                 }
               ],
+            "PropertyInspectorPath": "daysuntil_pi.html",
             "SupportedInMultiActions": false,
             "Tooltip": "Days Until",
             "UUID": "com.krabs.daysuntil.action"
         }
     ],
+
     "SDKVersion": 2,
     "Author": "Krabs",
     "Category": "Krabs - Stream Deck Labs",
     "CategoryIcon": "resources/images/categoryIcon",
     "CodePath": "daysuntil.html",
-    "PropertyInspectorPath": "daysuntil_pi.html",
     "Description": "Days Until <Date>. Hours & Minutes on final day.",
-    "Name": "Days Until",
+    "Name": "Days Until  ___",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
     "Version": "2.0.2",

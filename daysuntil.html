@@ -50,14 +50,36 @@
                       vMinutes = vMinutes-(vDays*24*60)-(vHours*60);
                       vSeconds = vSeconds-(vDays*24*60*60)-(vHours*60*60)-(vMinutes*60);
                       console.warn("Days: ", (vDays+1));
-                      var imageUrl = "resources/images/actionDefaultImage.png";
                       var vDisplay_vEventName_Line1 = vEventName_Line1
                       var vDisplay_vEventName_Line2 = vEventName_Line2
                       var vDisplay_TimeLeft = (vDays+1)
-                      convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
-                      var vAvatarBase64 = base64Img;
-                      setImage(context, vAvatarBase64);
-                      });
+                      if (vDisplay_TimeLeft > 0) {
+                        KrabsDaysUntil.SetTitle(context, "");
+                        var inState = 0
+                        setState(context, inState);
+                        var imageUrl = "resources/images/actionDefaultImage.png";
+                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
+                        var vAvatarBase64 = base64Img;
+                        setImage(context, vAvatarBase64);
+                        });
+                      } else if (vDisplay_TimeLeft == 0) {
+                        var inState = 1
+                        setState(context, inState);
+                        var imageUrl = "resources/images/tday.png";
+                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
+                        var vAvatarBase64 = base64Img;
+                        setImage(context, vAvatarBase64);
+                        });
+                        if (vDisplay_TimeLeft == 0) {
+                          if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                            KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line1 + "\n" + vDisplay_vEventName_Line2);
+                          } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                            KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line1);
+                          } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                            KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line2);
+                          }
+                        }
+                      }
                     }
                   getData();
                   setTimeout(function run() {
@@ -139,27 +161,66 @@
                   canvas.height = img.height;
                   canvas.width = img.width;
                     ctx.drawImage(img,0,0);
-                    // Text
-                    ctx.font = "bold 13px Arial";
-                    ctx.fillStyle = 'white';
-                    ctx.textAlign = 'center';
-                    ctx.fillText("Days Until", 36, 12);
+                    // Text, width, height
+                    if (vDisplay_TimeLeft > 0) {
+                      ctx.font = "bold 13px Arial";
+                      ctx.fillStyle = 'white';
+                      ctx.textAlign = 'center';
+                      ctx.fillText("Days Until", 36, 12);
 
-                    ctx.font = "28px Impact";
-                    ctx.fillStyle = 'black';
-                    ctx.textAlign = 'center';
-                    // width, height
-                    ctx.fillText("+" + vDisplay_TimeLeft, 36, 43);
+                      ctx.font = "28px Impact";
+                      ctx.fillStyle = 'black';
+                      ctx.textAlign = 'center';
+                      ctx.fillText("+" + vDisplay_TimeLeft, 36, 43);
 
-                    ctx.font = "bold 13px Arial";
-                    ctx.fillStyle = '#d00000';
-                    ctx.textAlign = 'center';
-                    ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
+                      if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = '#d00000';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
 
-                    ctx.font = "bold 13px Arial";
-                    ctx.fillStyle = '#d00000';
-                    ctx.textAlign = 'center';
-                    ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = '#d00000';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
+
+                      } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = '#d00000';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 60);
+
+                      } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = '#d00000';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line2, 36, 60);
+                      }
+
+                    } /*else if (vDisplay_TimeLeft == 0) {
+                      if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = 'white';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
+
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = 'white';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
+                      } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = 'white';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 68);
+
+                      } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = 'white';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
+                      }
+                    }*/
                     // shape
                     //ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
                     //ctx.fillRect(30, 30, 20, 20);
@@ -286,6 +347,10 @@
                         console.log("sendToPlugin received payload: ", jsonPayload);
                     } else if (event == "didReceiveSettings") {
                         console.log("didReceiveSettings received payload: ", jsonPayload);
+                        let settings = jsonPayload["settings"];
+                        let coordinates = jsonPayload["coordinates"];
+                        let userDesiredState = jsonPayload["userDesiredState"];
+                        KrabsDaysUntil.onWillAppear(context, settings, coordinates, userDesiredState);
                         }
 
                   };
