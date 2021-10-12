@@ -33,11 +33,11 @@
     "Category": "Krabs - Stream Deck Labs",
     "CategoryIcon": "resources/images/categoryIcon",
     "CodePath": "daysuntil.html",
-    "Description": "Days Until <Date>. Hours & Minutes on final day.",
+    "Description": "Shows the number of days left until the date you set! Customizable image for Day Of Event.",
     "Name": "Days Until  ___",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
-    "Version": "2.0.2",
+    "Version": "1.0.1",
     "OS": [
         { "Platform": "windows", "MinimumVersion": "10" },
         { "Platform": "mac", "MinimumVersion": "10.11" }
