@@ -49,7 +49,7 @@
                       vHours = vHours-(vDays*24);
                       vMinutes = vMinutes-(vDays*24*60)-(vHours*60);
                       vSeconds = vSeconds-(vDays*24*60*60)-(vHours*60*60)-(vMinutes*60);
-                      console.warn("Days: ", (vDays+1));
+                      //console.warn("Days: ", (vDays+1));
                       var vDisplay_vEventName_Line1 = vEventName_Line1
                       var vDisplay_vEventName_Line2 = vEventName_Line2
                       var vDisplay_TimeLeft = (vDays+1)
@@ -70,7 +70,7 @@
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
                         });
-                        if (vDisplay_TimeLeft == 0) {
+                        /*if (vDisplay_TimeLeft == 0) {
                           if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                             KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line1 + "\n" + vDisplay_vEventName_Line2);
                           } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
@@ -78,7 +78,7 @@
                           } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                             KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line2);
                           }
-                        }
+                        }*/
                       }
                     }
                   getData();
@@ -197,30 +197,30 @@
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 60);
                       }
 
-                    } /*else if (vDisplay_TimeLeft == 0) {
+                    } else if (vDisplay_TimeLeft == 0) {
                       if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'white';
+                        ctx.fillStyle = '#fea711';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
 
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'white';
+                        ctx.fillStyle = '#fea711';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
                       } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'white';
+                        ctx.fillStyle = '#fea711';
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line1, 36, 68);
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 60);
 
                       } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'white';
+                        ctx.fillStyle = '#fea711';
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
+                        ctx.fillText(vDisplay_vEventName_Line2, 36, 60);
                       }
-                    }*/
+                    }
                     // shape
                     //ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
                     //ctx.fillRect(30, 30, 20, 20);

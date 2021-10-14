@@ -16,7 +16,7 @@
                   "Image": "resources/images/tday",
                   "TitleAlignment": "bottom",
                   "FontFamily": "Arial",
-                  "TitleColor": "#ffffff",
+                  "TitleColor": "#000000",
                   "FontStyle": "Bold",
                   "FontSize": "9"
                 }
@@ -37,7 +37,7 @@
     "Name": "Days Until  ___",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
-    "Version": "1.0.1",
+    "Version": "1.0.2",
     "OS": [
         { "Platform": "windows", "MinimumVersion": "10" },
         { "Platform": "mac", "MinimumVersion": "10.11" }
