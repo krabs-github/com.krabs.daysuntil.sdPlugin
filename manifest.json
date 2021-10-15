@@ -6,7 +6,7 @@
             "States": [
                 {
                   "Image": "resources/images/actionDefaultImage",
-                  "TitleAlignment": "bottom",
+                  "TitleAlignment": "center",
                   "FontFamily": "Arial",
                   "TitleColor": "#ffffff",
                   "FontStyle": "Bold",
@@ -14,9 +14,9 @@
                 },
                 {
                   "Image": "resources/images/tday",
-                  "TitleAlignment": "bottom",
+                  "TitleAlignment": "center",
                   "FontFamily": "Arial",
-                  "TitleColor": "#000000",
+                  "TitleColor": "#ffffff",
                   "FontStyle": "Bold",
                   "FontSize": "9"
                 }
@@ -37,7 +37,7 @@
     "Name": "Days Until  ___",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
-    "Version": "1.0.3",
+    "Version": "1.0.4",
     "OS": [
         { "Platform": "windows", "MinimumVersion": "10" },
         { "Platform": "mac", "MinimumVersion": "10.11" }

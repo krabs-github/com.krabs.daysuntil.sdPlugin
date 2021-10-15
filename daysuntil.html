@@ -63,6 +63,7 @@
                         setImage(context, vAvatarBase64);
                         });
                       } else if (vDisplay_TimeLeft == 0) {
+                        KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/tday.png";
@@ -70,15 +71,16 @@
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
                         });
-                        /*if (vDisplay_TimeLeft == 0) {
-                          if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
-                            KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line1 + "\n" + vDisplay_vEventName_Line2);
-                          } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
-                            KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line1);
-                          } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
-                            KrabsDaysUntil.SetTitle(context, vDisplay_vEventName_Line2);
-                          }
-                        }*/
+                      } else {
+                        KrabsDaysUntil.SetTitle(context, "");
+                        var inState = 1
+                        setState(context, inState);
+                        var imageUrl = "resources/images/expired.png";
+                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
+                        var vAvatarBase64 = base64Img;
+                        setImage(context, vAvatarBase64);
+                        });
+                        KrabsDaysUntil.SetTitle(context, "Expired!");
                       }
                     }
                   getData();
