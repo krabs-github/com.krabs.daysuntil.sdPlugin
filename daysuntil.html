@@ -201,24 +201,36 @@
 
                     } else if (vDisplay_TimeLeft == 0) {
                       if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        ctx.shadowOffsetX = 2;
+                        ctx.shadowOffsetY = 2;
+                        ctx.shadowColor = "rgba(0,0,0,0.2)";
+                        ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#fea711';
+                        ctx.fillStyle = '#b74100';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
 
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#fea711';
+                        ctx.fillStyle = '#000000';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
                       } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        ctx.shadowOffsetX = 2;
+                        ctx.shadowOffsetY = 2;
+                        ctx.shadowColor = "rgba(0,0,0,0.2)";
+                        ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#fea711';
+                        ctx.fillStyle = '#b74100';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line1, 36, 60);
 
                       } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        ctx.shadowOffsetX = 2;
+                        ctx.shadowOffsetY = 2;
+                        ctx.shadowColor = "rgba(0,0,0,0.2)";
+                        ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#fea711';
+                        ctx.fillStyle = '#b74100';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 60);
                       }
