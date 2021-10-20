@@ -62,11 +62,20 @@
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
                         });
-                      } else if (vDisplay_TimeLeft == 0) {
+                      } else if (vDisplay_TimeLeft == 0 && vEventDate) {
                         KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/tday.png";
+                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
+                        var vAvatarBase64 = base64Img;
+                        setImage(context, vAvatarBase64);
+                        });
+                      } else if (!vEventDate) {
+                        KrabsDaysUntil.SetTitle(context, "");
+                        var inState = 1
+                        setState(context, inState);
+                        var imageUrl = "resources/images/actionDefaultImage.png";
                         convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
@@ -165,6 +174,15 @@
                     ctx.drawImage(img,0,0);
                     // Text, width, height
                     if (vDisplay_TimeLeft > 0) {
+                      if (!vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        vPosition = 52
+                      } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        vPosition = 46
+                      } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        vPosition = 46
+                      } else {
+                        vPosition = 43
+                      }
                       ctx.font = "bold 13px Arial";
                       ctx.fillStyle = 'white';
                       ctx.textAlign = 'center';
@@ -173,7 +191,7 @@
                       ctx.font = "28px Impact";
                       ctx.fillStyle = 'black';
                       ctx.textAlign = 'center';
-                      ctx.fillText("+" + vDisplay_TimeLeft, 36, 43);
+                      ctx.fillText("+" + vDisplay_TimeLeft, 36, vPosition);
 
                       if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
@@ -206,12 +224,12 @@
                         ctx.shadowColor = "rgba(0,0,0,0.2)";
                         ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#b74100';
+                        ctx.fillStyle = 'black';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
 
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#000000';
+                        ctx.fillStyle = 'black';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
                       } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
@@ -220,7 +238,7 @@
                         ctx.shadowColor = "rgba(0,0,0,0.2)";
                         ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#b74100';
+                        ctx.fillStyle = 'black';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line1, 36, 60);
 
@@ -230,7 +248,7 @@
                         ctx.shadowColor = "rgba(0,0,0,0.2)";
                         ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#b74100';
+                        ctx.fillStyle = 'black';
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 60);
                       }
