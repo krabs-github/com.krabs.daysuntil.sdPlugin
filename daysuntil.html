@@ -3,6 +3,7 @@
     <head>
         <title>com.krabs.daysuntil.action</title>
         <meta charset="utf-8" />
+        <script src="resources/scripts/timer.js"></script>
     </head>
     <body>
         <script>
@@ -24,18 +25,40 @@
                 },
                 fKrabs_DaysUntil: function (context, settings) {
                     var payload = settingsCache[context];
-                    var vEventName_Line1 = payload['vKrabs_EventName'];
-                    var vEventName_Line2 = payload['vKrabs_EventName2'];
+                    if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
+                      var vEventName_Line1 = payload['vKrabs_EventName'];
+                    } else {
+                      vEventName_Line1 = "*Set date";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
+                      var vEventName_Line2 = payload['vKrabs_EventName2'];
+                    } else {
+                      vEventName_Line2 = "in settings";
+                    }
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                       var vEventDate = payload['vKrabs_EventDate'];
+                    } else {
+                      vDate_PlaceHolder = new Date();
+                      var vEventDate = (vDate_PlaceHolder.getFullYear() + "-" + (vDate_PlaceHolder.getMonth()+1) + "-" + (vDate_PlaceHolder.getDate()+1))
                     }
 
                     function getData() {
                       var payload = settingsCache[context];
-                      var vEventName_Line1 = payload['vKrabs_EventName'];
-                      var vEventName_Line2 = payload['vKrabs_EventName2'];
+                      if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
+                        var vEventName_Line1 = payload['vKrabs_EventName'];
+                      } else {
+                        vEventName_Line1 = "*Set date";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
+                        var vEventName_Line2 = payload['vKrabs_EventName2'];
+                      } else {
+                        vEventName_Line2 = "in settings";
+                      }
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                         var vEventDate = payload['vKrabs_EventDate'];
+                      } else {
+                        vDate_PlaceHolder = new Date();
+                        var vEventDate = (vDate_PlaceHolder.getFullYear() + "-" + (vDate_PlaceHolder.getMonth()+1) + "-" + (vDate_PlaceHolder.getDate()+1))
                       }
 
                       vDate_Future = new Date(new Date(vEventDate));
@@ -54,7 +77,7 @@
                       var vDisplay_vEventName_Line2 = vEventName_Line2
                       var vDisplay_TimeLeft = (vDays+1)
                       if (vDisplay_TimeLeft > 0) {
-                        KrabsDaysUntil.SetTitle(context, "");
+                        //KrabsDaysUntil.SetTitle(context, "");
                         var inState = 0
                         setState(context, inState);
                         var imageUrl = "resources/images/actionDefaultImage.png";
@@ -63,7 +86,7 @@
                         setImage(context, vAvatarBase64);
                         });
                       } else if (vDisplay_TimeLeft == 0 && vEventDate) {
-                        KrabsDaysUntil.SetTitle(context, "");
+                        //KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/tday.png";
@@ -72,7 +95,7 @@
                         setImage(context, vAvatarBase64);
                         });
                       } else if (!vEventDate) {
-                        KrabsDaysUntil.SetTitle(context, "");
+                        //KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/actionDefaultImage.png";
@@ -81,7 +104,7 @@
                         setImage(context, vAvatarBase64);
                         });
                       } else {
-                        KrabsDaysUntil.SetTitle(context, "");
+                        //KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/expired.png";
@@ -110,13 +133,13 @@
                     /* Code here will run when the Stream Deck application is opened, the user switches between profiles or when a user adds the action
                         to their Stream Deck https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#willappear
                     */
-                    console.log("onWillAppear context: ", context, " settings: ", settings);
+                    //console.log("onWillAppear context: ", context, " settings: ", settings);
                     settingsCache[context] = settings;
                     var payload = settingsCache[context];
                     KrabsDaysUntil.fKrabs_DaysUntil(context, settings);
                 },
                 onWillDisappear: function (context, settings, coordinates) {
-                    console.log("onWillDisappear context: ", context, " settings: ", settings);
+                    //console.log("onWillDisappear context: ", context, " settings: ", settings);
                 },
                 SetTitle: function (context, vAnswer) {
                     let json = { event: "setTitle", context: context, payload: { title: ""+ vAnswer, target: DestinationEnum.HARDWARE_AND_SOFTWARE } };
@@ -124,7 +147,7 @@
                 },
                 getSettings: function (context, payload) {
                     websocket.send(context, 'getSettings', {});
-                    console.log(settings)
+                    //console.log(settings)
                 },
                 SetSettings: function (context, settings) {
                     var json = {
@@ -135,11 +158,11 @@
 
                     websocket.send(JSON.stringify(json));
                     settingsCache[context] = settings;
-                    console.log("New Settings", settings);
-                    console.log("New JSON", JSON.stringify(json));
+                    //console.log("New Settings", settings);
+                    //console.log("New JSON", JSON.stringify(json));
                 },
                 didReceiveSettings: function (context, payload) {
-                  console.log("Did receive: ", settings)
+                  //console.log("Did receive: ", settings)
                 }
             };
 // End of let KrabsDaysUntil definition
@@ -347,7 +370,7 @@
                 };
                 websocket.onmessage = function (evt) {
                     let jsonObj = JSON.parse(evt.data);
-                    console.log("onmessage json: ", jsonObj);
+                    //console.log("onmessage json: ", jsonObj);
                     let event = jsonObj["event"];
                     let action = jsonObj["action"];
                     let context = jsonObj["context"];
@@ -376,9 +399,9 @@
                         var coordinates = jsonPayload['coordinates'];
                         KrabsDaysUntil.onWillDisappear(context, settings, coordinates);
                     } else if (event == "sendToPlugin") {
-                        console.log("sendToPlugin received payload: ", jsonPayload);
+                        //console.log("sendToPlugin received payload: ", jsonPayload);
                     } else if (event == "didReceiveSettings") {
-                        console.log("didReceiveSettings received payload: ", jsonPayload);
+                        //console.log("didReceiveSettings received payload: ", jsonPayload);
                         let settings = jsonPayload["settings"];
                         let coordinates = jsonPayload["coordinates"];
                         let userDesiredState = jsonPayload["userDesiredState"];
