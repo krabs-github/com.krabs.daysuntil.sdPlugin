@@ -28,17 +28,17 @@
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                       var vEventName_Line1 = payload['vKrabs_EventName'];
                     } else {
-                      vEventName_Line1 = "*Set date";
+                      var vEventName_Line1 = "*No Date";
                     }
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                       var vEventName_Line2 = payload['vKrabs_EventName2'];
                     } else {
-                      vEventName_Line2 = "in settings";
+                      var vEventName_Line2 = "Set!";
                     }
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                       var vEventDate = payload['vKrabs_EventDate'];
                     } else {
-                      vDate_PlaceHolder = new Date();
+                      var vDate_PlaceHolder = new Date();
                       var vEventDate = (vDate_PlaceHolder.getFullYear() + "-" + (vDate_PlaceHolder.getMonth()+1) + "-" + (vDate_PlaceHolder.getDate()+1))
                     }
 
@@ -47,17 +47,17 @@
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                         var vEventName_Line1 = payload['vKrabs_EventName'];
                       } else {
-                        vEventName_Line1 = "*Set date";
+                        var vEventName_Line1 = "*No Date";
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                         var vEventName_Line2 = payload['vKrabs_EventName2'];
                       } else {
-                        vEventName_Line2 = "in settings";
+                        var vEventName_Line2 = "Set!";
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                         var vEventDate = payload['vKrabs_EventDate'];
                       } else {
-                        vDate_PlaceHolder = new Date();
+                        var vDate_PlaceHolder = new Date();
                         var vEventDate = (vDate_PlaceHolder.getFullYear() + "-" + (vDate_PlaceHolder.getMonth()+1) + "-" + (vDate_PlaceHolder.getDate()+1))
                       }
 
@@ -77,16 +77,17 @@
                       var vDisplay_vEventName_Line2 = vEventName_Line2
                       var vDisplay_TimeLeft = (vDays+1)
                       if (vDisplay_TimeLeft > 0) {
-                        //KrabsDaysUntil.SetTitle(context, "");
+                        KrabsDaysUntil.SetTitle(context, "");
                         var inState = 0
                         setState(context, inState);
                         var imageUrl = "resources/images/actionDefaultImage.png";
                         convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
+                        KrabsDaysUntil.SetTitle(context, "");
                         });
                       } else if (vDisplay_TimeLeft == 0 && vEventDate) {
-                        //KrabsDaysUntil.SetTitle(context, "");
+                        KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/tday.png";
@@ -95,7 +96,7 @@
                         setImage(context, vAvatarBase64);
                         });
                       } else if (!vEventDate) {
-                        //KrabsDaysUntil.SetTitle(context, "");
+                        KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/actionDefaultImage.png";
@@ -104,7 +105,7 @@
                         setImage(context, vAvatarBase64);
                         });
                       } else {
-                        //KrabsDaysUntil.SetTitle(context, "");
+                        KrabsDaysUntil.SetTitle(context, "");
                         var inState = 1
                         setState(context, inState);
                         var imageUrl = "resources/images/expired.png";
