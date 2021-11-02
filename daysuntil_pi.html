@@ -25,9 +25,1406 @@
           <div class="sdpi-item-label">Date of Event</div>
           <input class="sdProperty" type="date" id="vKrabs_EventDate" value="" required oninput="setSettings()">
       </div>
+      <div class="sdpi-heading">Top Bar Options</div>
+      <div type="color" class="sdpi-item" id="colorselection">
+        <div class="sdpi-item-label">Bar Color</div>
+        <input type="color" class="sdProperty" id="vKrabs_CustomBarColor" value="#ff0000" oninput="setSettings()">
+        <div class="sdpi-item-label">Bar Text Color</div>
+        <input type="color" class="sdProperty" id="vKrabs_CustomBarTextColor" value="#ffffff" oninput="setSettings()">
+      </div>
+      <div class="sdpi-heading">Countdown Screen Options</div>
+      <div type="color" class="sdpi-item" id="colorselection">
+        <div class="sdpi-item-label">Countdown Background Color</div>
+        <input type="color" class="sdProperty" id="vKrabs_CustomCountdownBackgroundColor" value="#ffffff" oninput="setSettings()">
+        <div class="sdpi-item-label">Countdown Text Color</div>
+        <input type="color" class="sdProperty" id="vKrabs_CustomCountdownTextColor" value="#000000" oninput="setSettings()">
+      </div>
+      <div type="checkbox" class="sdpi-item" id="single-check">
+           <div class="sdpi-item-label" style="width: 275px !important;">Enhance text readability on dark backgrounds</div>
+           <div class="sdpi-item-value">
+               <div class="sdpi-item-child">
+                   <input id="vKrabs_Readability" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="setSettings()">
+                   <label for="vKrabs_Readability" class="sdpi-item-label"><span></span></label>
+               </div>
+           </div>
+      </div>
+      <div class="sdpi-heading">Event Options</div>
+      <div type="color" class="sdpi-item" id="colorselection">
+        <div class="sdpi-item-label">-Day of Event- Background Color</div>
+        <input type="color" class="sdProperty" id="vKrabs_CustomEventBackgroundColor" value="#ffffff" oninput="setSettings()">
+        <div class="sdpi-item-label">Event Text Color</div>
+        <input type="color" class="sdProperty" id="vKrabs_CustomEventTextColor" value="#000000" oninput="setSettings()">
+      </div>
+      <div class="sdpi-item" id="select_single">
+           <div class="sdpi-item-label">Day of Event Overlay Icon</div>
+           <select class="sdProperty" id="vKrabs_OverlayIcon" onchange="DisplayCustomSettings()" oninput="setSettings()" style="font-size: 36px; text-align: center;">
+             <optgroup label="- Events -" style="font-size: 16px; text-align: center;">
+               <option value = "🎆" style="font-size: 36px;">🎆</option>
+               <option value = "🎁" style="font-size: 36px;">🎁</option>
+               <option value = "🎃" style="font-size: 36px;">🎃</option>
+               <option value = "✨" style="font-size: 36px;">✨</option>
+               <option value = "🎇" style="font-size: 36px;">🎇</option>
+               <option value = "🎀" style="font-size: 36px;">🎀</option>
+               <option value = "🎉" style="font-size: 36px;">🎉</option>
+               <option value = "🎟" style="font-size: 36px;">🎟</option>
+               <option value = "🎈" style="font-size: 36px;">🎈</option>
+               <option value = "🎋" style="font-size: 36px;">🎋</option>
+               <option value = "🎊" style="font-size: 36px;">🎊</option>
+               <option value = "🎗" style="font-size: 36px;">🎗</option>
+               <option value = "🎫" style="font-size: 36px;">🎫</option>
+               <option value = "🎑" style="font-size: 36px;">🎑</option>
+               <option value = "🎍" style="font-size: 36px;">🎍</option>
+               <option value = "🎏" style="font-size: 36px;">🎏</option>
+               <option value = "🧧" style="font-size: 36px;">🧧</option>
+               <option value = "🎎" style="font-size: 36px;">🎎</option>
+               <option value = "🎐" style="font-size: 36px;">🎐</option>
+               <option value = "🎄" style="font-size: 36px;">🎄</option>
+               <option value = "🍀" style="font-size: 36px;">🍀</option>
+             </optgroup>
+             <optgroup label="- Person Fantasy -" style="font-size: 16px; text-align: center;">
+               <option value = "🧛" style="font-size: 36px;">🧛</option>
+               <option value = "🧚" style="font-size: 36px;">🧚</option>
+               <option value = "🎅" style="font-size: 36px;">🎅</option>
+               <option value = "🧞" style="font-size: 36px;">🧞</option>
+               <option value = "🧙" style="font-size: 36px;">🧙</option>
+               <option value = "👼" style="font-size: 36px;">👼</option>
+               <option value = "🧜" style="font-size: 36px;">🧜</option>
+               <option value = "🧝" style="font-size: 36px;">🧝</option>
+               <option value = "🤶" style="font-size: 36px;">🤶</option>
+               <option value = "🧟" style="font-size: 36px;">🧟</option>
+               <option value = "🦹" style="font-size: 36px;">🦹</option>
+               <option value = "🦸" style="font-size: 36px;">🦸</option>
+             </optgroup>
+             <optgroup label="- Geometrics Shapes -" style="font-size: 16px; text-align: center;">
+               <option value = "🔴" style="font-size: 36px;">🔴</option>
+               <option value = "⚫" style="font-size: 36px;">⚫</option>
+               <option value = "⚪" style="font-size: 36px;">⚪</option>
+               <option value = "🔵" style="font-size: 36px;">🔵</option>
+               <option value = "🔶" style="font-size: 36px;">🔶</option>
+               <option value = "🔷" style="font-size: 36px;">🔷</option>
+               <option value = "◼" style="font-size: 36px;">◼</option>
+               <option value = "▫" style="font-size: 36px;">▫</option>
+               <option value = "◻" style="font-size: 36px;">◻</option>
+               <option value = "▪" style="font-size: 36px;">▪</option>
+               <option value = "🔻" style="font-size: 36px;">🔻</option>
+               <option value = "🔺" style="font-size: 36px;">🔺</option>
+               <option value = "🔳" style="font-size: 36px;">🔳</option>
+               <option value = "◽" style="font-size: 36px;">◽</option>
+               <option value = "🔲" style="font-size: 36px;">🔲</option>
+               <option value = "◾" style="font-size: 36px;">◾</option>
+               <option value = "🔹" style="font-size: 36px;">🔹</option>
+               <option value = "🔸" style="font-size: 36px;">🔸</option>
+               <option value = "🔘" style="font-size: 36px;">🔘</option>
+               <option value = "🟪" style="font-size: 36px;">🟪</option>
+               <option value = "🟩" style="font-size: 36px;">🟩</option>
+               <option value = "🟡" style="font-size: 36px;">🟡</option>
+               <option value = "💠" style="font-size: 36px;">💠</option>
+               <option value = "🟠" style="font-size: 36px;">🟠</option>
+               <option value = "🟨" style="font-size: 36px;">🟨</option>
+               <option value = "🟤" style="font-size: 36px;">🟤</option>
+               <option value = "⬜" style="font-size: 36px;">⬜</option>
+               <option value = "🟥" style="font-size: 36px;">🟥</option>
+               <option value = "🟫" style="font-size: 36px;">🟫</option>
+               <option value = "🟧" style="font-size: 36px;">🟧</option>
+               <option value = "🟣" style="font-size: 36px;">🟣</option>
+               <option value = "🟢" style="font-size: 36px;">🟢</option>
+               <option value = "🟦" style="font-size: 36px;">🟦</option>
+               <option value = "⬛" style="font-size: 36px;">⬛</option>
+             </optgroup>
+            <optgroup label="- Emotions -" style="font-size: 16px; text-align: center;">
+              <option value = "🗯" style="font-size: 36px;">🗯</option>
+              <option value = "🕳" style="font-size: 36px;">🕳</option>
+              <option value = "🗨" style="font-size: 36px;">🗨</option>
+              <option value = "🧡" style="font-size: 36px;">🧡</option>
+              <option value = "💟" style="font-size: 36px;">💟</option>
+              <option value = "💭" style="font-size: 36px;">💭</option>
+              <option value = "🤎" style="font-size: 36px;">🤎</option>
+              <option value = "💞" style="font-size: 36px;">💞</option>
+              <option value = "🤍" style="font-size: 36px;">🤍</option>
+              <option value = "💌" style="font-size: 36px;">💌</option>
+              <option value = "🖤" style="font-size: 36px;">🖤</option>
+              <option value = "💢" style="font-size: 36px;">💢</option>
+              <option value = "💓" style="font-size: 36px;">💓</option>
+              <option value = "💯" style="font-size: 36px;">💯</option>
+              <option value = "💕" style="font-size: 36px;">💕</option>
+              <option value = "💋" style="font-size: 36px;">💋</option>
+              <option value = "💨" style="font-size: 36px;">💨</option>
+              <option value = "💦" style="font-size: 36px;">💦</option>
+              <option value = "💫" style="font-size: 36px;">💫</option>
+              <option value = "💗" style="font-size: 36px;">💗</option>
+              <option value = "💔" style="font-size: 36px;">💔</option>
+              <option value = "💘" style="font-size: 36px;">💘</option>
+              <option value = "💚" style="font-size: 36px;">💚</option>
+              <option value = "💙" style="font-size: 36px;">💙</option>
+              <option value = "💜" style="font-size: 36px;">💜</option>
+              <option value = "💛" style="font-size: 36px;">💛</option>
+              <option value = "💥" style="font-size: 36px;">💥</option>
+              <option value = "💖" style="font-size: 36px;">💖</option>
+              <option value = "💬" style="font-size: 36px;">💬</option>
+              <option value = "💣" style="font-size: 36px;">💣</option>
+              <option value = "💤" style="font-size: 36px;">💤</option>
+              <option value = "❤" style="font-size: 36px;">❤</option>
+              <option value = "❣" style="font-size: 36px;">❣</option>
+              <option value = "💝" style="font-size: 36px;">💝</option>
+            </optgroup>
+            <optgroup label="- Person Sports -" style="font-size: 16px; text-align: center;">
+              <option value = "🤹" style="font-size: 36px;">🤹</option>
+              <option value = "🤸" style="font-size: 36px;">🤸</option>
+              <option value = "🤺" style="font-size: 36px;">🤺</option>
+              <option value = "🤼" style="font-size: 36px;">🤼</option>
+              <option value = "🤾" style="font-size: 36px;">🤾</option>
+              <option value = "🚣" style="font-size: 36px;">🚣</option>
+              <option value = "🚵" style="font-size: 36px;">🚵</option>
+              <option value = "🚴" style="font-size: 36px;">🚴</option>
+              <option value = "🤽" style="font-size: 36px;">🤽</option>
+              <option value = "⛷" style="font-size: 36px;">⛷</option>
+              <option value = "🏋" style="font-size: 36px;">🏋</option>
+              <option value = "⛹" style="font-size: 36px;">⛹</option>
+              <option value = "🏌" style="font-size: 36px;">🏌</option>
+              <option value = "🏂" style="font-size: 36px;">🏂</option>
+              <option value = "🏇" style="font-size: 36px;">🏇</option>
+              <option value = "🏊" style="font-size: 36px;">🏊</option>
+              <option value = "🏄" style="font-size: 36px;">🏄</option>
+            </optgroup>
+            <optgroup label="- Flowers -" style="font-size: 16px; text-align: center;">
+              <option value = "🌹" style="font-size: 36px;">🌹</option>
+              <option value = "💮" style="font-size: 36px;">💮</option>
+              <option value = "🌷" style="font-size: 36px;">🌷</option>
+              <option value = "🌺" style="font-size: 36px;">🌺</option>
+              <option value = "🏵" style="font-size: 36px;">🏵</option>
+              <option value = "🌼" style="font-size: 36px;">🌼</option>
+              <option value = "🌻" style="font-size: 36px;">🌻</option>
+              <option value = "💐" style="font-size: 36px;">💐</option>
+              <option value = "🥀" style="font-size: 36px;">🥀</option>
+              <option value = "🌸" style="font-size: 36px;">🌸</option>
+            </optgroup>
+            <optgroup label="- Other Plants -" style="font-size: 16px; text-align: center;">
+              <option value = "🌲" style="font-size: 36px;">🌲</option>
+              <option value = "🌳" style="font-size: 36px;">🌳</option>
+              <option value = "🌴" style="font-size: 36px;">🌴</option>
+              <option value = "🌵" style="font-size: 36px;">🌵</option>
+              <option value = "🌾" style="font-size: 36px;">🌾</option>
+              <option value = "🍀" style="font-size: 36px;">🍀</option>
+              <option value = "🌱" style="font-size: 36px;">🌱</option>
+              <option value = "🍂" style="font-size: 36px;">🍂</option>
+              <option value = "🍃" style="font-size: 36px;">🍃</option>
+              <option value = "🍁" style="font-size: 36px;">🍁</option>
+              <option value = "🌿" style="font-size: 36px;">🌿</option>
+              <option value = "☘" style="font-size: 36px;">☘</option>
+              <option value = "🪴" style="font-size: 36px;">🪴</option>
+            </optgroup>
+            <optgroup label="- Fruits -" style="font-size: 16px; text-align: center;">
+              <option value = "🥝" style="font-size: 36px;">🥝</option>
+              <option value = "🥥" style="font-size: 36px;">🥥</option>
+              <option value = "🫐" style="font-size: 36px;">🫐</option>
+              <option value = "🍓" style="font-size: 36px;">🍓</option>
+              <option value = "🍒" style="font-size: 36px;">🍒</option>
+              <option value = "🥭" style="font-size: 36px;">🥭</option>
+              <option value = "🍑" style="font-size: 36px;">🍑</option>
+              <option value = "🍋" style="font-size: 36px;">🍋</option>
+              <option value = "🍊" style="font-size: 36px;">🍊</option>
+              <option value = "🍉" style="font-size: 36px;">🍉</option>
+              <option value = "🫒" style="font-size: 36px;">🫒</option>
+              <option value = "🍍" style="font-size: 36px;">🍍</option>
+              <option value = "🍈" style="font-size: 36px;">🍈</option>
+              <option value = "🍎" style="font-size: 36px;">🍎</option>
+              <option value = "🍇" style="font-size: 36px;">🍇</option>
+              <option value = "🍅" style="font-size: 36px;">🍅</option>
+              <option value = "🍌" style="font-size: 36px;">🍌</option>
+              <option value = "🍏" style="font-size: 36px;">🍏</option>
+              <option value = "🍐" style="font-size: 36px;">🍐</option>
+            </optgroup>
+            <optgroup label="- Vegetables -" style="font-size: 16px; text-align: center;">
+              <option value = "🧄" style="font-size: 36px;">🧄</option>
+              <option value = "🫑" style="font-size: 36px;">🫑</option>
+              <option value = "🥜" style="font-size: 36px;">🥜</option>
+              <option value = "🌰" style="font-size: 36px;">🌰</option>
+              <option value = "🥑" style="font-size: 36px;">🥑</option>
+              <option value = "🥕" style="font-size: 36px;">🥕</option>
+              <option value = "🧅" style="font-size: 36px;">🧅</option>
+              <option value = "🥔" style="font-size: 36px;">🥔</option>
+              <option value = "🥒" style="font-size: 36px;">🥒</option>
+              <option value = "🥬" style="font-size: 36px;">🥬</option>
+              <option value = "🌶" style="font-size: 36px;">🌶</option>
+              <option value = "🥦" style="font-size: 36px;">🥦</option>
+              <option value = "🍆" style="font-size: 36px;">🍆</option>
+              <option value = "🍄" style="font-size: 36px;">🍄</option>
+              <option value = "🌽" style="font-size: 36px;">🌽</option>
+            </optgroup>
+            <optgroup label="- Prepared Foods -" style="font-size: 16px; text-align: center;">
+              <option value = "🍳" style="font-size: 36px;">🍳</option>
+              <option value = "🧈" style="font-size: 36px;">🧈</option>
+              <option value = "🧇" style="font-size: 36px;">🧇</option>
+              <option value = "🍲" style="font-size: 36px;">🍲</option>
+              <option value = "🧆" style="font-size: 36px;">🧆</option>
+              <option value = "🫓" style="font-size: 36px;">🫓</option>
+              <option value = "🌯" style="font-size: 36px;">🌯</option>
+              <option value = "🌮" style="font-size: 36px;">🌮</option>
+              <option value = "🌭" style="font-size: 36px;">🌭</option>
+              <option value = "🧀" style="font-size: 36px;">🧀</option>
+              <option value = "🧂" style="font-size: 36px;">🧂</option>
+              <option value = "🫔" style="font-size: 36px;">🫔</option>
+              <option value = "🫕" style="font-size: 36px;">🫕</option>
+              <option value = "🥯" style="font-size: 36px;">🥯</option>
+              <option value = "🍕" style="font-size: 36px;">🍕</option>
+              <option value = "🍖" style="font-size: 36px;">🍖</option>
+              <option value = "🍔" style="font-size: 36px;">🍔</option>
+              <option value = "🥪" style="font-size: 36px;">🥪</option>
+              <option value = "🥫" style="font-size: 36px;">🥫</option>
+              <option value = "🍗" style="font-size: 36px;">🍗</option>
+              <option value = "🍿" style="font-size: 36px;">🍿</option>
+              <option value = "🥖" style="font-size: 36px;">🥖</option>
+              <option value = "🥗" style="font-size: 36px;">🥗</option>
+              <option value = "🥙" style="font-size: 36px;">🥙</option>
+              <option value = "🥘" style="font-size: 36px;">🥘</option>
+              <option value = "🥞" style="font-size: 36px;">🥞</option>
+              <option value = "🥚" style="font-size: 36px;">🥚</option>
+              <option value = "🥓" style="font-size: 36px;">🥓</option>
+              <option value = "🍟" style="font-size: 36px;">🍟</option>
+              <option value = "🍞" style="font-size: 36px;">🍞</option>
+              <option value = "🥨" style="font-size: 36px;">🥨</option>
+              <option value = "🥩" style="font-size: 36px;">🥩</option>
+              <option value = "🥐" style="font-size: 36px;">🥐</option>
+              <option value = "🥣" style="font-size: 36px;">🥣</option>
+            </optgroup>
+            <optgroup label="- Asian Food -" style="font-size: 16px; text-align: center;">
+              <option value = "🥡" style="font-size: 36px;">🥡</option>
+              <option value = "🍚" style="font-size: 36px;">🍚</option>
+              <option value = "🍙" style="font-size: 36px;">🍙</option>
+              <option value = "🍘" style="font-size: 36px;">🍘</option>
+              <option value = "🍱" style="font-size: 36px;">🍱</option>
+              <option value = "🥠" style="font-size: 36px;">🥠</option>
+              <option value = "🍛" style="font-size: 36px;">🍛</option>
+              <option value = "🍠" style="font-size: 36px;">🍠</option>
+              <option value = "🥮" style="font-size: 36px;">🥮</option>
+              <option value = "🍢" style="font-size: 36px;">🍢</option>
+              <option value = "🍡" style="font-size: 36px;">🍡</option>
+              <option value = "🍤" style="font-size: 36px;">🍤</option>
+              <option value = "🍣" style="font-size: 36px;">🍣</option>
+              <option value = "🍥" style="font-size: 36px;">🍥</option>
+              <option value = "🍝" style="font-size: 36px;">🍝</option>
+              <option value = "🍜" style="font-size: 36px;">🍜</option>
+              <option value = "🥟" style="font-size: 36px;">🥟</option>
+            </optgroup>
+            <optgroup label="- Seafood -" style="font-size: 16px; text-align: center;">
+              <option value = "🦞" style="font-size: 36px;">🦞</option>
+              <option value = "🦪" style="font-size: 36px;">🦪</option>
+              <option value = "🦀" style="font-size: 36px;">🦀</option>
+              <option value = "🦑" style="font-size: 36px;">🦑</option>
+              <option value = "🦐" style="font-size: 36px;">🦐</option>
+            </optgroup>
+            <optgroup label="- Desserts -" style="font-size: 16px; text-align: center;">
+              <option value = "🍫" style="font-size: 36px;">🍫</option>
+              <option value = "🍦" style="font-size: 36px;">🍦</option>
+              <option value = "🍧" style="font-size: 36px;">🍧</option>
+              <option value = "🍬" style="font-size: 36px;">🍬</option>
+              <option value = "🍩" style="font-size: 36px;">🍩</option>
+              <option value = "🍪" style="font-size: 36px;">🍪</option>
+              <option value = "🍨" style="font-size: 36px;">🍨</option>
+              <option value = "🍯" style="font-size: 36px;">🍯</option>
+              <option value = "🧁" style="font-size: 36px;">🧁</option>
+              <option value = "🍭" style="font-size: 36px;">🍭</option>
+              <option value = "🥧" style="font-size: 36px;">🥧</option>
+              <option value = "🍮" style="font-size: 36px;">🍮</option>
+              <option value = "🍰" style="font-size: 36px;">🍰</option>
+              <option value = "🎂" style="font-size: 36px;">🎂</option>
+              <option value = "🥃" style="font-size: 36px;">🥃</option>
+              <option value = "🥂" style="font-size: 36px;">🥂</option>
+              <option value = "🍺" style="font-size: 36px;">🍺</option>
+              <option value = "🧉" style="font-size: 36px;">🧉</option>
+              <option value = "☕" style="font-size: 36px;">☕</option>
+            </optgroup>
+            <optgroup label="- Drinks -" style="font-size: 16px; text-align: center;">
+              <option value = "🥤" style="font-size: 36px;">🥤</option>
+              <option value = "🧃" style="font-size: 36px;">🧃</option>
+              <option value = "🍾" style="font-size: 36px;">🍾</option>
+              <option value = "🥛" style="font-size: 36px;">🥛</option>
+              <option value = "🫖" style="font-size: 36px;">🫖</option>
+              <option value = "🍹" style="font-size: 36px;">🍹</option>
+              <option value = "🍵" style="font-size: 36px;">🍵</option>
+              <option value = "🍻" style="font-size: 36px;">🍻</option>
+              <option value = "🧊" style="font-size: 36px;">🧊</option>
+              <option value = "🍼" style="font-size: 36px;">🍼</option>
+              <option value = "🧋" style="font-size: 36px;">🧋</option>
+              <option value = "🍶" style="font-size: 36px;">🍶</option>
+              <option value = "🍷" style="font-size: 36px;">🍷</option>
+              <option value = "🍸" style="font-size: 36px;">🍸</option>
+            </optgroup>
+            <optgroup label="- Dishware -" style="font-size: 16px; text-align: center;">
+              <option value = "🍴" style="font-size: 36px;">🍴</option>
+              <option value = "🥄" style="font-size: 36px;">🥄</option>
+              <option value = "🔪" style="font-size: 36px;">🔪</option>
+              <option value = "🥢" style="font-size: 36px;">🥢</option>
+              <option value = "🏺" style="font-size: 36px;">🏺</option>
+              <option value = "🍽" style="font-size: 36px;">🍽</option>
+            </optgroup>
+            <optgroup label="- Map -" style="font-size: 16px; text-align: center;">
+              <option value = "🌏" style="font-size: 36px;">🌏</option>
+              <option value = "🧭" style="font-size: 36px;">🧭</option>
+              <option value = "🌎" style="font-size: 36px;">🌎</option>
+              <option value = "🗺" style="font-size: 36px;">🗺</option>
+              <option value = "🗾" style="font-size: 36px;">🗾</option>
+              <option value = "🌍" style="font-size: 36px;">🌍</option>
+              <option value = "🌐" style="font-size: 36px;">🌐</option>
+            </optgroup>
+            <optgroup label="- Places -" style="font-size: 16px; text-align: center;">
+              <option value = "🏜" style="font-size: 36px;">🏜</option>
+              <option value = "🌋" style="font-size: 36px;">🌋</option>
+              <option value = "🏖" style="font-size: 36px;">🏖</option>
+              <option value = "🏝" style="font-size: 36px;">🏝</option>
+              <option value = "🗻" style="font-size: 36px;">🗻</option>
+              <option value = "🏔" style="font-size: 36px;">🏔</option>
+              <option value = "⛰" style="font-size: 36px;">⛰</option>
+              <option value = "🏞" style="font-size: 36px;">🏞</option>
+              <option value = "🏕" style="font-size: 36px;">🏕</option>
+            </optgroup>
+            <optgroup label="- Buildings -" style="font-size: 16px; text-align: center;">
+              <option value = "🗽" style="font-size: 36px;">🗽</option>
+              <option value = "🏭" style="font-size: 36px;">🏭</option>
+              <option value = "🏬" style="font-size: 36px;">🏬</option>
+              <option value = "🏦" style="font-size: 36px;">🏦</option>
+              <option value = "🏥" style="font-size: 36px;">🏥</option>
+              <option value = "🗼" style="font-size: 36px;">🗼</option>
+              <option value = "🏩" style="font-size: 36px;">🏩</option>
+              <option value = "🏪" style="font-size: 36px;">🏪</option>
+              <option value = "🏫" style="font-size: 36px;">🏫</option>
+              <option value = "🏘" style="font-size: 36px;">🏘</option>
+              <option value = "🏚" style="font-size: 36px;">🏚</option>
+              <option value = "🏛" style="font-size: 36px;">🏛</option>
+              <option value = "🏤" style="font-size: 36px;">🏤</option>
+              <option value = "🏟" style="font-size: 36px;">🏟</option>
+              <option value = "🏗" style="font-size: 36px;">🏗</option>
+              <option value = "💒" style="font-size: 36px;">💒</option>
+              <option value = "🏨" style="font-size: 36px;">🏨</option>
+              <option value = "🏢" style="font-size: 36px;">🏢</option>
+              <option value = "🏡" style="font-size: 36px;">🏡</option>
+              <option value = "🪨" style="font-size: 36px;">🪨</option>
+              <option value = "🏠" style="font-size: 36px;">🏠</option>
+              <option value = "🏣" style="font-size: 36px;">🏣</option>
+              <option value = "🏰" style="font-size: 36px;">🏰</option>
+              <option value = "🧱" style="font-size: 36px;">🧱</option>
+              <option value = "🏯" style="font-size: 36px;">🏯</option>
+              <option value = "🪵" style="font-size: 36px;">🪵</option>
+              <option value = "🛖" style="font-size: 36px;">🛖</option>
+            </optgroup>
+            <optgroup label="- Religious Buildings -" style="font-size: 16px; text-align: center;">
+              <option value = "🕌" style="font-size: 36px;">🕌</option>
+              <option value = "🕋" style="font-size: 36px;">🕋</option>
+              <option value = "🕍" style="font-size: 36px;">🕍</option>
+              <option value = "⛪" style="font-size: 36px;">⛪</option>
+              <option value = "⛩" style="font-size: 36px;">⛩</option>
+              <option value = "🛕" style="font-size: 36px;">🛕</option>
+            </optgroup>
+            <optgroup label="- Other Places -" style="font-size: 16px; text-align: center;">
+              <option value = "🎡" style="font-size: 36px;">🎡</option>
+              <option value = "⛺" style="font-size: 36px;">⛺</option>
+              <option value = "🎢" style="font-size: 36px;">🎢</option>
+              <option value = "💈" style="font-size: 36px;">💈</option>
+              <option value = "🌇" style="font-size: 36px;">🌇</option>
+              <option value = "🌉" style="font-size: 36px;">🌉</option>
+              <option value = "🌅" style="font-size: 36px;">🌅</option>
+              <option value = "🌆" style="font-size: 36px;">🌆</option>
+              <option value = "🌃" style="font-size: 36px;">🌃</option>
+              <option value = "🌄" style="font-size: 36px;">🌄</option>
+              <option value = "♨" style="font-size: 36px;">♨</option>
+              <option value = "🎪" style="font-size: 36px;">🎪</option>
+              <option value = "🌁" style="font-size: 36px;">🌁</option>
+              <option value = "🏙" style="font-size: 36px;">🏙</option>
+              <option value = "🎠" style="font-size: 36px;">🎠</option>
+              <option value = "⛲" style="font-size: 36px;">⛲</option>
+            </optgroup>
+            <optgroup label="- Ground Transport -" style="font-size: 16px; text-align: center;">
+              <option value = "🚧" style="font-size: 36px;">🚧</option>
+              <option value = "🚥" style="font-size: 36px;">🚥</option>
+              <option value = "🚃" style="font-size: 36px;">🚃</option>
+              <option value = "🚘" style="font-size: 36px;">🚘</option>
+              <option value = "🚲" style="font-size: 36px;">🚲</option>
+              <option value = "🚈" style="font-size: 36px;">🚈</option>
+              <option value = "🚇" style="font-size: 36px;">🚇</option>
+              <option value = "🚆" style="font-size: 36px;">🚆</option>
+              <option value = "🚅" style="font-size: 36px;">🚅</option>
+              <option value = "🚄" style="font-size: 36px;">🚄</option>
+              <option value = "🛢" style="font-size: 36px;">🛢</option>
+              <option value = "🚚" style="font-size: 36px;">🚚</option>
+              <option value = "🚜" style="font-size: 36px;">🚜</option>
+              <option value = "🚉" style="font-size: 36px;">🚉</option>
+              <option value = "🚂" style="font-size: 36px;">🚂</option>
+              <option value = "🚗" style="font-size: 36px;">🚗</option>
+              <option value = "🚊" style="font-size: 36px;">🚊</option>
+              <option value = "🚙" style="font-size: 36px;">🚙</option>
+              <option value = "🚋" style="font-size: 36px;">🚋</option>
+              <option value = "🚛" style="font-size: 36px;">🚛</option>
+              <option value = "🚌" style="font-size: 36px;">🚌</option>
+              <option value = "🚝" style="font-size: 36px;">🚝</option>
+              <option value = "🚍" style="font-size: 36px;">🚍</option>
+              <option value = "🚎" style="font-size: 36px;">🚎</option>
+              <option value = "🚏" style="font-size: 36px;">🚏</option>
+              <option value = "🛑" style="font-size: 36px;">🛑</option>
+              <option value = "🚐" style="font-size: 36px;">🚐</option>
+              <option value = "🛣" style="font-size: 36px;">🛣</option>
+              <option value = "🚑" style="font-size: 36px;">🚑</option>
+              <option value = "🚦" style="font-size: 36px;">🚦</option>
+              <option value = "🚒" style="font-size: 36px;">🚒</option>
+              <option value = "🚨" style="font-size: 36px;">🚨</option>
+              <option value = "🚓" style="font-size: 36px;">🚓</option>
+              <option value = "🏎" style="font-size: 36px;">🏎</option>
+              <option value = "🚔" style="font-size: 36px;">🚔</option>
+              <option value = "🏍" style="font-size: 36px;">🏍</option>
+              <option value = "🚕" style="font-size: 36px;">🚕</option>
+              <option value = "⛽" style="font-size: 36px;">⛽</option>
+              <option value = "🚖" style="font-size: 36px;">🚖</option>
+              <option value = "🛴" style="font-size: 36px;">🛴</option>
+              <option value = "🚞" style="font-size: 36px;">🚞</option>
+              <option value = "🛹" style="font-size: 36px;">🛹</option>
+              <option value = "🛤" style="font-size: 36px;">🛤</option>
+              <option value = "🛻" style="font-size: 36px;">🛻</option>
+              <option value = "🛺" style="font-size: 36px;">🛺</option>
+              <option value = "🛵" style="font-size: 36px;">🛵</option>
+              <option value = "🛼" style="font-size: 36px;">🛼</option>
+              <option value = "🦼" style="font-size: 36px;">🦼</option>
+              <option value = "🦽" style="font-size: 36px;">🦽</option>
+            </optgroup>
+            <optgroup label="- Water Transport -" style="font-size: 16px; text-align: center;">
+              <option value = "🚤" style="font-size: 36px;">🚤</option>
+              <option value = "🚢" style="font-size: 36px;">🚢</option>
+              <option value = "⛵" style="font-size: 36px;">⛵</option>
+              <option value = "⚓" style="font-size: 36px;">⚓</option>
+              <option value = "🛳" style="font-size: 36px;">🛳</option>
+              <option value = "🛶" style="font-size: 36px;">🛶</option>
+              <option value = "⛴" style="font-size: 36px;">⛴</option>
+              <option value = "🛥" style="font-size: 36px;">🛥</option>
+              <option value = "🛩" style="font-size: 36px;">🛩</option>
+              <option value = "🚡" style="font-size: 36px;">🚡</option>
+              <option value = "🛫" style="font-size: 36px;">🛫</option>
+              <option value = "🚀" style="font-size: 36px;">🚀</option>
+              <option value = "🚁" style="font-size: 36px;">🚁</option>
+              <option value = "🛰" style="font-size: 36px;">🛰</option>
+            </optgroup>
+            <optgroup label="- Air Transport -" style="font-size: 16px; text-align: center;">
+              <option value = "✈" style="font-size: 36px;">✈</option>
+              <option value = "🚟" style="font-size: 36px;">🚟</option>
+              <option value = "🛬" style="font-size: 36px;">🛬</option>
+              <option value = "🛸" style="font-size: 36px;">🛸</option>
+              <option value = "🚠" style="font-size: 36px;">🚠</option>
+              <option value = "🪂" style="font-size: 36px;">🪂</option>
+              <option value = "💺" style="font-size: 36px;">💺</option>
+            </optgroup>
+            <optgroup label="- Hotel -" style="font-size: 16px; text-align: center;">
+              <option value = "🧳" style="font-size: 36px;">🧳</option>
+              <option value = "🛎" style="font-size: 36px;">🛎</option>
+            </optgroup>
+            <optgroup label="- Time -" style="font-size: 16px; text-align: center;">
+              <option value = "⏱" style="font-size: 36px;">⏱</option>
+              <option value = "⌛" style="font-size: 36px;">⌛</option>
+              <option value = "⏰" style="font-size: 36px;">⏰</option>
+              <option value = "⌚" style="font-size: 36px;">⌚</option>
+              <option value = "⏳" style="font-size: 36px;">⏳</option>
+              <option value = "🕰" style="font-size: 36px;">🕰</option>
+            </optgroup>
+            <optgroup label="- Sky & Weather -" style="font-size: 16px; text-align: center;">
+              <option value = "⚡" style="font-size: 36px;">⚡</option>
+              <option value = "🔥" style="font-size: 36px;">🔥</option>
+              <option value = "🌊" style="font-size: 36px;">🌊</option>
+              <option value = "🌑" style="font-size: 36px;">🌑</option>
+              <option value = "⭐" style="font-size: 36px;" selected>⭐</option>
+              <option value = "🌂" style="font-size: 36px;">🌂</option>
+              <option value = "☂" style="font-size: 36px;">☂</option>
+              <option value = "☔" style="font-size: 36px;">☔</option>
+              <option value = "💧" style="font-size: 36px;">💧</option>
+              <option value = "🌒" style="font-size: 36px;">🌒</option>
+              <option value = "☃" style="font-size: 36px;">☃</option>
+              <option value = "🌀" style="font-size: 36px;">🌀</option>
+              <option value = "⛄" style="font-size: 36px;">⛄</option>
+              <option value = "🌈" style="font-size: 36px;">🌈</option>
+              <option value = "⛅" style="font-size: 36px;">⛅</option>
+              <option value = "🌌" style="font-size: 36px;">🌌</option>
+              <option value = "☁" style="font-size: 36px;">☁</option>
+              <option value = "☀" style="font-size: 36px;">☀</option>
+              <option value = "🪐" style="font-size: 36px;">🪐</option>
+              <option value = "☄" style="font-size: 36px;">☄</option>
+              <option value = "🌠" style="font-size: 36px;">🌠</option>
+              <option value = "🌓" style="font-size: 36px;">🌓</option>
+              <option value = "🌧" style="font-size: 36px;">🌧</option>
+              <option value = "🌟" style="font-size: 36px;">🌟</option>
+              <option value = "🌫" style="font-size: 36px;">🌫</option>
+              <option value = "🌙" style="font-size: 36px;">🌙</option>
+              <option value = "🌚" style="font-size: 36px;">🌚</option>
+              <option value = "⛱" style="font-size: 36px;">⛱</option>
+              <option value = "🌝" style="font-size: 36px;">🌝</option>
+              <option value = "🌨" style="font-size: 36px;">🌨</option>
+              <option value = "⛈" style="font-size: 36px;">⛈</option>
+              <option value = "❄" style="font-size: 36px;">❄</option>
+              <option value = "🌔" style="font-size: 36px;">🌔</option>
+              <option value = "🌥" style="font-size: 36px;">🌥</option>
+              <option value = "🌪" style="font-size: 36px;">🌪</option>
+              <option value = "🌩" style="font-size: 36px;">🌩</option>
+              <option value = "🌦" style="font-size: 36px;">🌦</option>
+              <option value = "🌤" style="font-size: 36px;">🌤</option>
+              <option value = "🌕" style="font-size: 36px;">🌕</option>
+              <option value = "🌡" style="font-size: 36px;">🌡</option>
+              <option value = "🌖" style="font-size: 36px;">🌖</option>
+              <option value = "🌬" style="font-size: 36px;">🌬</option>
+              <option value = "🌗" style="font-size: 36px;">🌗</option>
+              <option value = "🌞" style="font-size: 36px;">🌞</option>
+              <option value = "🌘" style="font-size: 36px;">🌘</option>
+              <option value = "🌛" style="font-size: 36px;">🌛</option>
+              <option value = "🌜" style="font-size: 36px;">🌜</option>
+            </optgroup>
+            <optgroup label="- Awards -" style="font-size: 16px; text-align: center;">
+              <option value = "🧨" style="font-size: 36px;">🧨</option>
+              <option value = "🏆" style="font-size: 36px;">🏆</option>
+              <option value = "🎖" style="font-size: 36px;">🎖</option>
+              <option value = "🏅" style="font-size: 36px;">🏅</option>
+              <option value = "🥇" style="font-size: 36px;">🥇</option>
+              <option value = "🥉" style="font-size: 36px;">🥉</option>
+              <option value = "🥈" style="font-size: 36px;">🥈</option>
+            </optgroup>
+            <optgroup label="- Sports -" style="font-size: 16px; text-align: center;">
+              <option value = "🤿" style="font-size: 36px;">🤿</option>
+              <option value = "🥌" style="font-size: 36px;">🥌</option>
+              <option value = "🏀" style="font-size: 36px;">🏀</option>
+              <option value = "🏓" style="font-size: 36px;">🏓</option>
+              <option value = "🎣" style="font-size: 36px;">🎣</option>
+              <option value = "🏑" style="font-size: 36px;">🏑</option>
+              <option value = "🏐" style="font-size: 36px;">🏐</option>
+              <option value = "🎽" style="font-size: 36px;">🎽</option>
+              <option value = "🎾" style="font-size: 36px;">🎾</option>
+              <option value = "🎿" style="font-size: 36px;">🎿</option>
+              <option value = "⚽" style="font-size: 36px;">⚽</option>
+              <option value = "🏒" style="font-size: 36px;">🏒</option>
+              <option value = "🥎" style="font-size: 36px;">🥎</option>
+              <option value = "⛸" style="font-size: 36px;">⛸</option>
+              <option value = "🥏" style="font-size: 36px;">🥏</option>
+              <option value = "⚾" style="font-size: 36px;">⚾</option>
+              <option value = "🥊" style="font-size: 36px;">🥊</option>
+              <option value = "🥍" style="font-size: 36px;">🥍</option>
+              <option value = "🏈" style="font-size: 36px;">🏈</option>
+              <option value = "🥋" style="font-size: 36px;">🥋</option>
+              <option value = "🏏" style="font-size: 36px;">🏏</option>
+              <option value = "🥅" style="font-size: 36px;">🥅</option>
+              <option value = "🏉" style="font-size: 36px;">🏉</option>
+              <option value = "🎳" style="font-size: 36px;">🎳</option>
+              <option value = "⛳" style="font-size: 36px;">⛳</option>
+              <option value = "🛷" style="font-size: 36px;">🛷</option>
+              <option value = "🏸" style="font-size: 36px;">🏸</option>
+            </optgroup>
+            <optgroup label="- Gaming -" style="font-size: 16px; text-align: center;">
+              <option value = "♣" style="font-size: 36px;">♣</option>
+              <option value = "♥" style="font-size: 36px;">♥</option>
+              <option value = "♦" style="font-size: 36px;">♦</option>
+              <option value = "🕹" style="font-size: 36px;">🕹</option>
+              <option value = "♠" style="font-size: 36px;">♠</option>
+              <option value = "♟" style="font-size: 36px;">♟</option>
+              <option value = "🔮" style="font-size: 36px;">🔮</option>
+              <option value = "🧩" style="font-size: 36px;">🧩</option>
+              <option value = "🃏" style="font-size: 36px;">🃏</option>
+              <option value = "🎴" style="font-size: 36px;">🎴</option>
+              <option value = "🀄" style="font-size: 36px;">🀄</option>
+              <option value = "🎱" style="font-size: 36px;">🎱</option>
+              <option value = "🎲" style="font-size: 36px;">🎲</option>
+              <option value = "🎰" style="font-size: 36px;">🎰</option>
+              <option value = "🪆" style="font-size: 36px;">🪆</option>
+              <option value = "🪅" style="font-size: 36px;">🪅</option>
+              <option value = "🎮" style="font-size: 36px;">🎮</option>
+              <option value = "🪁" style="font-size: 36px;">🪁</option>
+              <option value = "🪄" style="font-size: 36px;">🪄</option>
+              <option value = "🪀" style="font-size: 36px;">🪀</option>
+              <option value = "🧿" style="font-size: 36px;">🧿</option>
+              <option value = "🧸" style="font-size: 36px;">🧸</option>
+              <option value = "🎯" style="font-size: 36px;">🎯</option>
+            </optgroup>
+            <optgroup label="- Art & Craft -" style="font-size: 16px; text-align: center;">
+              <option value = "🎨" style="font-size: 36px;">🎨</option>
+              <option value = "🪢" style="font-size: 36px;">🪢</option>
+              <option value = "🧵" style="font-size: 36px;">🧵</option>
+              <option value = "🖼" style="font-size: 36px;">🖼</option>
+              <option value = "🧶" style="font-size: 36px;">🧶</option>
+              <option value = "🎭" style="font-size: 36px;">🎭</option>
+              <option value = "🪡" style="font-size: 36px;">🪡</option>
+            </optgroup>
+            <optgroup label="- Clothing -" style="font-size: 16px; text-align: center;">
+              <option value = "🎓" style="font-size: 36px;">🎓</option>
+              <option value = "👗" style="font-size: 36px;">👗</option>
+              <option value = "👙" style="font-size: 36px;">👙</option>
+              <option value = "👛" style="font-size: 36px;">👛</option>
+              <option value = "🧢" style="font-size: 36px;">🧢</option>
+              <option value = "⛑" style="font-size: 36px;">⛑</option>
+              <option value = "👞" style="font-size: 36px;">👞</option>
+              <option value = "👟" style="font-size: 36px;">👟</option>
+              <option value = "👝" style="font-size: 36px;">👝</option>
+              <option value = "👜" style="font-size: 36px;">👜</option>
+              <option value = "🦺" style="font-size: 36px;">🦺</option>
+              <option value = "🪖" style="font-size: 36px;">🪖</option>
+              <option value = "🧣" style="font-size: 36px;">🧣</option>
+              <option value = "👕" style="font-size: 36px;">👕</option>
+              <option value = "👡" style="font-size: 36px;">👡</option>
+              <option value = "👑" style="font-size: 36px;">👑</option>
+              <option value = "💄" style="font-size: 36px;">💄</option>
+              <option value = "🧤" style="font-size: 36px;">🧤</option>
+              <option value = "👚" style="font-size: 36px;">👚</option>
+              <option value = "👢" style="font-size: 36px;">👢</option>
+              <option value = "💍" style="font-size: 36px;">💍</option>
+              <option value = "🧥" style="font-size: 36px;">🧥</option>
+              <option value = "👘" style="font-size: 36px;">👘</option>
+              <option value = "💎" style="font-size: 36px;">💎</option>
+              <option value = "🧦" style="font-size: 36px;">🧦</option>
+              <option value = "🕶" style="font-size: 36px;">🕶</option>
+              <option value = "👓" style="font-size: 36px;">👓</option>
+              <option value = "🎩" style="font-size: 36px;">🎩</option>
+              <option value = "👖" style="font-size: 36px;">👖</option>
+              <option value = "🛍" style="font-size: 36px;">🛍</option>
+              <option value = "🩰" style="font-size: 36px;">🩰</option>
+              <option value = "🎒" style="font-size: 36px;">🎒</option>
+              <option value = "🥻" style="font-size: 36px;">🥻</option>
+              <option value = "🩴" style="font-size: 36px;">🩴</option>
+              <option value = "🥾" style="font-size: 36px;">🥾</option>
+              <option value = "🩱" style="font-size: 36px;">🩱</option>
+              <option value = "👔" style="font-size: 36px;">👔</option>
+              <option value = "🥼" style="font-size: 36px;">🥼</option>
+              <option value = "🩲" style="font-size: 36px;">🩲</option>
+              <option value = "🥿" style="font-size: 36px;">🥿</option>
+              <option value = "🩳" style="font-size: 36px;">🩳</option>
+              <option value = "👠" style="font-size: 36px;">👠</option>
+              <option value = "📿" style="font-size: 36px;">📿</option>
+              <option value = "🥽" style="font-size: 36px;">🥽</option>
+              <option value = "👒" style="font-size: 36px;">👒</option>
+            </optgroup>
+            <optgroup label="- Sound -" style="font-size: 16px; text-align: center;">
+              <option value = "📢" style="font-size: 36px;">📢</option>
+              <option value = "🔇" style="font-size: 36px;">🔇</option>
+              <option value = "🔈" style="font-size: 36px;">🔈</option>
+              <option value = "📣" style="font-size: 36px;">📣</option>
+              <option value = "📯" style="font-size: 36px;">📯</option>
+              <option value = "🔊" style="font-size: 36px;">🔊</option>
+              <option value = "🔔" style="font-size: 36px;">🔔</option>
+              <option value = "🔕" style="font-size: 36px;">🔕</option>
+              <option value = "🔉" style="font-size: 36px;">🔉</option>
+            </optgroup>
+            <optgroup label="- Music -" style="font-size: 16px; text-align: center;">
+              <option value = "📻" style="font-size: 36px;">📻</option>
+              <option value = "🎛" style="font-size: 36px;">🎛</option>
+              <option value = "🎙" style="font-size: 36px;">🎙</option>
+              <option value = "🎤" style="font-size: 36px;">🎤</option>
+              <option value = "🎚" style="font-size: 36px;">🎚</option>
+              <option value = "🎶" style="font-size: 36px;">🎶</option>
+              <option value = "🎼" style="font-size: 36px;">🎼</option>
+              <option value = "🎵" style="font-size: 36px;">🎵</option>
+              <option value = "🎧" style="font-size: 36px;">🎧</option>
+              <option value = "🎻" style="font-size: 36px;">🎻</option>
+              <option value = "🪕" style="font-size: 36px;">🪕</option>
+              <option value = "🎺" style="font-size: 36px;">🎺</option>
+              <option value = "🎷" style="font-size: 36px;">🎷</option>
+              <option value = "🪗" style="font-size: 36px;">🪗</option>
+              <option value = "🥁" style="font-size: 36px;">🥁</option>
+              <option value = "🪘" style="font-size: 36px;">🪘</option>
+              <option value = "🎹" style="font-size: 36px;">🎹</option>
+              <option value = "🎸" style="font-size: 36px;">🎸</option>
+            </optgroup>
+            <optgroup label="- Phone -" style="font-size: 16px; text-align: center;">
+              <option value = "📞" style="font-size: 36px;">📞</option>
+              <option value = "📠" style="font-size: 36px;">📠</option>
+              <option value = "📱" style="font-size: 36px;">📱</option>
+              <option value = "📟" style="font-size: 36px;">📟</option>
+              <option value = "☎" style="font-size: 36px;">☎</option>
+              <option value = "📲" style="font-size: 36px;">📲</option>
+            </optgroup>
+            <optgroup label="- Computer -" style="font-size: 16px; text-align: center;">
+              <option value = "🖱" style="font-size: 36px;">🖱</option>
+              <option value = "🖲" style="font-size: 36px;">🖲</option>
+              <option value = "🖥" style="font-size: 36px;">🖥</option>
+              <option value = "🖨" style="font-size: 36px;">🖨</option>
+              <option value = "🧮" style="font-size: 36px;">🧮</option>
+              <option value = "⌨" style="font-size: 36px;">⌨</option>
+              <option value = "🔋" style="font-size: 36px;">🔋</option>
+              <option value = "🔌" style="font-size: 36px;">🔌</option>
+              <option value = "📀" style="font-size: 36px;">📀</option>
+              <option value = "💿" style="font-size: 36px;">💿</option>
+              <option value = "💾" style="font-size: 36px;">💾</option>
+              <option value = "💽" style="font-size: 36px;">💽</option>
+              <option value = "💻" style="font-size: 36px;">💻</option>
+            </optgroup>
+            <optgroup label="- Video -" style="font-size: 16px; text-align: center;">
+              <option value = "📹" style="font-size: 36px;">📹</option>
+              <option value = "📸" style="font-size: 36px;">📸</option>
+              <option value = "📷" style="font-size: 36px;">📷</option>
+              <option value = "🎥" style="font-size: 36px;">🎥</option>
+              <option value = "🎬" style="font-size: 36px;">🎬</option>
+              <option value = "📺" style="font-size: 36px;">📺</option>
+              <option value = "📼" style="font-size: 36px;">📼</option>
+              <option value = "🎞" style="font-size: 36px;">🎞</option>
+              <option value = "📽" style="font-size: 36px;">📽</option>
+            </optgroup>
+            <optgroup label="- Light -" style="font-size: 16px; text-align: center;">
+              <option value = "💡" style="font-size: 36px;">💡</option>
+              <option value = "🪔" style="font-size: 36px;">🪔</option>
+              <option value = "🏮" style="font-size: 36px;">🏮</option>
+              <option value = "🕯" style="font-size: 36px;">🕯</option>
+              <option value = "🔦" style="font-size: 36px;">🔦</option>
+            </optgroup>
+            <optgroup label="- Search -" style="font-size: 16px; text-align: center;">
+              <option value = "🔎" style="font-size: 36px;">🔎</option>
+              <option value = "🔍" style="font-size: 36px;">🔍</option>
+            </optgroup>
+            <optgroup label="- Paper & Books -" style="font-size: 16px; text-align: center;">
+              <option value = "🏷" style="font-size: 36px;">🏷</option>
+              <option value = "📑" style="font-size: 36px;">📑</option>
+              <option value = "📓" style="font-size: 36px;">📓</option>
+              <option value = "📃" style="font-size: 36px;">📃</option>
+              <option value = "📕" style="font-size: 36px;">📕</option>
+              <option value = "📒" style="font-size: 36px;">📒</option>
+              <option value = "📗" style="font-size: 36px;">📗</option>
+              <option value = "📔" style="font-size: 36px;">📔</option>
+              <option value = "📙" style="font-size: 36px;">📙</option>
+              <option value = "📖" style="font-size: 36px;">📖</option>
+              <option value = "🔖" style="font-size: 36px;">🔖</option>
+              <option value = "📘" style="font-size: 36px;">📘</option>
+              <option value = "📜" style="font-size: 36px;">📜</option>
+              <option value = "📚" style="font-size: 36px;">📚</option>
+              <option value = "📄" style="font-size: 36px;">📄</option>
+              <option value = "🗞" style="font-size: 36px;">🗞</option>
+              <option value = "📰" style="font-size: 36px;">📰</option>
+            </optgroup>
+            <optgroup label="- Money -" style="font-size: 16px; text-align: center;">
+              <option value = "💸" style="font-size: 36px;">💸</option>
+              <option value = "💷" style="font-size: 36px;">💷</option>
+              <option value = "💹" style="font-size: 36px;">💹</option>
+              <option value = "💶" style="font-size: 36px;">💶</option>
+              <option value = "💵" style="font-size: 36px;">💵</option>
+              <option value = "🪙" style="font-size: 36px;">🪙</option>
+              <option value = "💴" style="font-size: 36px;">💴</option>
+              <option value = "💳" style="font-size: 36px;">💳</option>
+              <option value = "💰" style="font-size: 36px;">💰</option>
+              <option value = "🧾" style="font-size: 36px;">🧾</option>
+            </optgroup>
+            <optgroup label="- Mail -" style="font-size: 16px; text-align: center;">
+              <option value = "📪" style="font-size: 36px;">📪</option>
+              <option value = "📫" style="font-size: 36px;">📫</option>
+              <option value = "📬" style="font-size: 36px;">📬</option>
+              <option value = "📭" style="font-size: 36px;">📭</option>
+              <option value = "📧" style="font-size: 36px;">📧</option>
+              <option value = "📤" style="font-size: 36px;">📤</option>
+              <option value = "📥" style="font-size: 36px;">📥</option>
+              <option value = "🗳" style="font-size: 36px;">🗳</option>
+              <option value = "📦" style="font-size: 36px;">📦</option>
+              <option value = "📨" style="font-size: 36px;">📨</option>
+              <option value = "📩" style="font-size: 36px;">📩</option>
+              <option value = "✉" style="font-size: 36px;">✉</option>
+              <option value = "📮" style="font-size: 36px;">📮</option>
+            </optgroup>
+            <optgroup label="- Writing -" style="font-size: 16px; text-align: center;">
+              <option value = "📝" style="font-size: 36px;">📝</option>
+              <option value = "🖍" style="font-size: 36px;">🖍</option>
+              <option value = "🖋" style="font-size: 36px;">🖋</option>
+              <option value = "🖌" style="font-size: 36px;">🖌</option>
+              <option value = "✒" style="font-size: 36px;">✒</option>
+              <option value = "🖊" style="font-size: 36px;">🖊</option>
+              <option value = "✏" style="font-size: 36px;">✏</option>
+            </optgroup>
+            <optgroup label="- Office -" style="font-size: 16px; text-align: center;">
+              <option value = "🗄" style="font-size: 36px;">🗄</option>
+              <option value = "🗃" style="font-size: 36px;">🗃</option>
+              <option value = "🗂" style="font-size: 36px;">🗂</option>
+              <option value = "✂" style="font-size: 36px;">✂</option>
+              <option value = "📈" style="font-size: 36px;">📈</option>
+              <option value = "🖇" style="font-size: 36px;">🖇</option>
+              <option value = "📌" style="font-size: 36px;">📌</option>
+              <option value = "🗓" style="font-size: 36px;">🗓</option>
+              <option value = "📊" style="font-size: 36px;">📊</option>
+              <option value = "🗑" style="font-size: 36px;">🗑</option>
+              <option value = "📐" style="font-size: 36px;">📐</option>
+              <option value = "📋" style="font-size: 36px;">📋</option>
+              <option value = "📉" style="font-size: 36px;">📉</option>
+              <option value = "📏" style="font-size: 36px;">📏</option>
+              <option value = "🗒" style="font-size: 36px;">🗒</option>
+              <option value = "📁" style="font-size: 36px;">📁</option>
+              <option value = "📍" style="font-size: 36px;">📍</option>
+              <option value = "💼" style="font-size: 36px;">💼</option>
+              <option value = "📅" style="font-size: 36px;">📅</option>
+              <option value = "📆" style="font-size: 36px;">📆</option>
+              <option value = "📇" style="font-size: 36px;">📇</option>
+              <option value = "📂" style="font-size: 36px;">📂</option>
+              <option value = "📎" style="font-size: 36px;">📎</option>
+            </optgroup>
+            <optgroup label="- Lock -" style="font-size: 16px; text-align: center;">
+              <option value = "🔓" style="font-size: 36px;">🔓</option>
+              <option value = "🔒" style="font-size: 36px;">🔒</option>
+              <option value = "🔑" style="font-size: 36px;">🔑</option>
+              <option value = "🔐" style="font-size: 36px;">🔐</option>
+              <option value = "🔏" style="font-size: 36px;">🔏</option>
+              <option value = "🗝" style="font-size: 36px;">🗝</option>
+            </optgroup>
+            <optgroup label="- Tools -" style="font-size: 16px; text-align: center;">
+              <option value = "🗜" style="font-size: 36px;">🗜</option>
+              <option value = "⚙" style="font-size: 36px;">⚙</option>
+              <option value = "🗡" style="font-size: 36px;">🗡</option>
+              <option value = "🏹" style="font-size: 36px;">🏹</option>
+              <option value = "🪝" style="font-size: 36px;">🪝</option>
+              <option value = "🪜" style="font-size: 36px;">🪜</option>
+              <option value = "🛡" style="font-size: 36px;">🛡</option>
+              <option value = "⛓" style="font-size: 36px;">⛓</option>
+              <option value = "🛠" style="font-size: 36px;">🛠</option>
+              <option value = "⛏" style="font-size: 36px;">⛏</option>
+              <option value = "🪓" style="font-size: 36px;">🪓</option>
+              <option value = "🪚" style="font-size: 36px;">🪚</option>
+              <option value = "🧲" style="font-size: 36px;">🧲</option>
+              <option value = "🪃" style="font-size: 36px;">🪃</option>
+              <option value = "🦯" style="font-size: 36px;">🦯</option>
+              <option value = "🧰" style="font-size: 36px;">🧰</option>
+              <option value = "🔧" style="font-size: 36px;">🔧</option>
+              <option value = "🔗" style="font-size: 36px;">🔗</option>
+              <option value = "🔩" style="font-size: 36px;">🔩</option>
+              <option value = "🔨" style="font-size: 36px;">🔨</option>
+              <option value = "⚔" style="font-size: 36px;">⚔</option>
+              <option value = "🔫" style="font-size: 36px;">🔫</option>
+              <option value = "⚖" style="font-size: 36px;">⚖</option>
+              <option value = "⚒" style="font-size: 36px;">⚒</option>
+              <option value = "🪛" style="font-size: 36px;">🪛</option>
+            </optgroup>
+            <optgroup label="- Science -" style="font-size: 16px; text-align: center;">
+              <option value = "🔭" style="font-size: 36px;">🔭</option>
+              <option value = "🔬" style="font-size: 36px;">🔬</option>
+              <option value = "📡" style="font-size: 36px;">📡</option>
+              <option value = "🧪" style="font-size: 36px;">🧪</option>
+              <option value = "🧫" style="font-size: 36px;">🧫</option>
+              <option value = "🧬" style="font-size: 36px;">🧬</option>
+              <option value = "⚗" style="font-size: 36px;">⚗</option>
+            </optgroup>
+            <optgroup label="- Medical -" style="font-size: 16px; text-align: center;">
+              <option value = "🩺" style="font-size: 36px;">🩺</option>
+              <option value = "🩹" style="font-size: 36px;">🩹</option>
+              <option value = "💉" style="font-size: 36px;">💉</option>
+              <option value = "🩸" style="font-size: 36px;">🩸</option>
+              <option value = "💊" style="font-size: 36px;">💊</option>
+            </optgroup>
+            <optgroup label="- Household -" style="font-size: 16px; text-align: center;">
+              <option value = "🪥" style="font-size: 36px;">🪥</option>
+              <option value = "🛁" style="font-size: 36px;">🛁</option>
+              <option value = "🪤" style="font-size: 36px;">🪤</option>
+              <option value = "🛗" style="font-size: 36px;">🛗</option>
+              <option value = "🛋" style="font-size: 36px;">🛋</option>
+              <option value = "🧴" style="font-size: 36px;">🧴</option>
+              <option value = "🪣" style="font-size: 36px;">🪣</option>
+              <option value = "🛒" style="font-size: 36px;">🛒</option>
+              <option value = "🪠" style="font-size: 36px;">🪠</option>
+              <option value = "🚿" style="font-size: 36px;">🚿</option>
+              <option value = "🛏" style="font-size: 36px;">🛏</option>
+              <option value = "🧯" style="font-size: 36px;">🧯</option>
+              <option value = "🪟" style="font-size: 36px;">🪟</option>
+              <option value = "🧷" style="font-size: 36px;">🧷</option>
+              <option value = "🪞" style="font-size: 36px;">🪞</option>
+              <option value = "🧺" style="font-size: 36px;">🧺</option>
+              <option value = "🪑" style="font-size: 36px;">🪑</option>
+              <option value = "🧹" style="font-size: 36px;">🧹</option>
+              <option value = "🧼" style="font-size: 36px;">🧼</option>
+              <option value = "🪒" style="font-size: 36px;">🪒</option>
+              <option value = "🧽" style="font-size: 36px;">🧽</option>
+              <option value = "🚽" style="font-size: 36px;">🚽</option>
+              <option value = "🧻" style="font-size: 36px;">🧻</option>
+              <option value = "🚪" style="font-size: 36px;">🚪</option>
+            </optgroup>
+            <optgroup label="- Other Objects -" style="font-size: 16px; text-align: center;">
+              <option value = "⚱" style="font-size: 36px;">⚱</option>
+              <option value = "🚬" style="font-size: 36px;">🚬</option>
+              <option value = "⚰" style="font-size: 36px;">⚰</option>
+              <option value = "🪧" style="font-size: 36px;">🪧</option>
+              <option value = "🗿" style="font-size: 36px;">🗿</option>
+              <option value = "🪦" style="font-size: 36px;">🪦</option>
+            </optgroup>
+            <optgroup label="- Signs -" style="font-size: 16px; text-align: center;">
+              <option value = "☢" style="font-size: 36px;">☢</option>
+              <option value = "⚠" style="font-size: 36px;">⚠</option>
+              <option value = "☣" style="font-size: 36px;">☣</option>
+              <option value = "🚷" style="font-size: 36px;">🚷</option>
+              <option value = "🚳" style="font-size: 36px;">🚳</option>
+              <option value = "🚸" style="font-size: 36px;">🚸</option>
+              <option value = "⛔" style="font-size: 36px;">⛔</option>
+              <option value = "📵" style="font-size: 36px;">📵</option>
+              <option value = "🚫" style="font-size: 36px;">🚫</option>
+              <option value = "🚱" style="font-size: 36px;">🚱</option>
+              <option value = "🚯" style="font-size: 36px;">🚯</option>
+              <option value = "🚭" style="font-size: 36px;">🚭</option>
+              <option value = "🔞" style="font-size: 36px;">🔞</option>
+            </optgroup>
+            <optgroup label="- Religion -" style="font-size: 16px; text-align: center;">
+              <option value = "⚛" style="font-size: 36px;">⚛</option>
+              <option value = "🔯" style="font-size: 36px;">🔯</option>
+              <option value = "✝" style="font-size: 36px;">✝</option>
+              <option value = "☪" style="font-size: 36px;">☪</option>
+              <option value = "☦" style="font-size: 36px;">☦</option>
+              <option value = "☯" style="font-size: 36px;">☯</option>
+              <option value = "☮" style="font-size: 36px;">☮</option>
+              <option value = "🕎" style="font-size: 36px;">🕎</option>
+              <option value = "🛐" style="font-size: 36px;">🛐</option>
+              <option value = "🕉" style="font-size: 36px;">🕉</option>
+              <option value = "✡" style="font-size: 36px;">✡</option>
+              <option value = "☸" style="font-size: 36px;">☸</option>
+            </optgroup>
+            <optgroup label="- Zodiac -" style="font-size: 16px; text-align: center;">
+              <option value = "♉" style="font-size: 36px;">♉</option>
+              <option value = "♋" style="font-size: 36px;">♋</option>
+              <option value = "♐" style="font-size: 36px;">♐</option>
+              <option value = "♑" style="font-size: 36px;">♑</option>
+              <option value = "♏" style="font-size: 36px;">♏</option>
+              <option value = "♒" style="font-size: 36px;">♒</option>
+              <option value = "♓" style="font-size: 36px;">♓</option>
+              <option value = "♍" style="font-size: 36px;">♍</option>
+              <option value = "♈" style="font-size: 36px;">♈</option>
+              <option value = "♌" style="font-size: 36px;">♌</option>
+              <option value = "♎" style="font-size: 36px;">♎</option>
+              <option value = "⛎" style="font-size: 36px;">⛎</option>
+              <option value = "♊" style="font-size: 36px;">♊</option>
+            </optgroup>
+            <optgroup label="- Gender -" style="font-size: 16px; text-align: center;">
+              <option value = "⚧" style="font-size: 36px;">⚧</option>
+              <option value = "♀" style="font-size: 36px;">♀</option>
+              <option value = "♂" style="font-size: 36px;">♂</option>
+            </optgroup>
+            <optgroup label="- Punctuation -" style="font-size: 16px; text-align: center;">
+              <option value = "⁉" style="font-size: 36px;">⁉</option>
+              <option value = "〰" style="font-size: 36px;">〰</option>
+              <option value = "❓" style="font-size: 36px;">❓</option>
+              <option value = "❔" style="font-size: 36px;">❔</option>
+              <option value = "❕" style="font-size: 36px;">❕</option>
+              <option value = "❗" style="font-size: 36px;">❗</option>
+              <option value = "‼" style="font-size: 36px;">‼</option>
+            </optgroup>
+            <optgroup label="- Currency -" style="font-size: 16px; text-align: center;">
+              <option value = "💱" style="font-size: 36px;">💱</option>
+              <option value = "💲" style="font-size: 36px;">💲</option>
+            </optgroup>
+            <optgroup label="- Other Symbols -" style="font-size: 16px; text-align: center;">
+              <option value = "❌" style="font-size: 36px;">❌</option>
+              <option value = "⭕" style="font-size: 36px;">⭕</option>
+              <option value = "❎" style="font-size: 36px;">❎</option>
+              <option value = "®" style="font-size: 36px;">®</option>
+              <option value = "™" style="font-size: 36px;">™</option>
+              <option value = "♻" style="font-size: 36px;">♻</option>
+              <option value = "➰" style="font-size: 36px;">➰</option>
+              <option value = "☑" style="font-size: 36px;">☑</option>
+              <option value = "🔰" style="font-size: 36px;">🔰</option>
+              <option value = "🔱" style="font-size: 36px;">🔱</option>
+              <option value = "✅" style="font-size: 36px;">✅</option>
+              <option value = "➿" style="font-size: 36px;">➿</option>
+              <option value = "©" style="font-size: 36px;">©</option>
+              <option value = "〽" style="font-size: 36px;">〽</option>
+              <option value = "⚕" style="font-size: 36px;">⚕</option>
+              <option value = "✔" style="font-size: 36px;">✔</option>
+              <option value = "⚜" style="font-size: 36px;">⚜</option>
+              <option value = "📛" style="font-size: 36px;">📛</option>
+              <option value = "✴" style="font-size: 36px;">✴</option>
+              <option value = "❇" style="font-size: 36px;">❇</option>
+              <option value = "✳" style="font-size: 36px;">✳</option>
+            </optgroup>
+            <optgroup label="- Flags -" style="font-size: 16px; text-align: center;">
+              <option value = "🏳" style="font-size: 36px;">🏳</option>
+              <option value = "🎌" style="font-size: 36px;">🎌</option>
+              <option value = "🏁" style="font-size: 36px;">🏁</option>
+              <option value = "🏴" style="font-size: 36px;">🏴</option>
+              <option value = "🚩" style="font-size: 36px;">🚩</option>
+            </optgroup>
+            <optgroup label="- Smileys & Emotions -" style="font-size: 16px; text-align: center;">
+             <option value = "😀" style="font-size: 36px;">😀</option>
+             <option value = "😉" style="font-size: 36px;">😉</option>
+             <option value = "😁" style="font-size: 36px;">😁</option>
+             <option value = "😆" style="font-size: 36px;">😆</option>
+             <option value = "😅" style="font-size: 36px;">😅</option>
+             <option value = "😂" style="font-size: 36px;">😂</option>
+             <option value = "🤣" style="font-size: 36px;">🤣</option>
+             <option value = "😊" style="font-size: 36px;">😊</option>
+             <option value = "🙂" style="font-size: 36px;">🙂</option>
+             <option value = "😄" style="font-size: 36px;">😄</option>
+             <option value = "🙃" style="font-size: 36px;">🙃</option>
+             <option value = "😇" style="font-size: 36px;">😇</option>
+             <option value = "😃" style="font-size: 36px;">😃</option>
+             <option value = "😚" style="font-size: 36px;">😚</option>
+             <option value = "🥰" style="font-size: 36px;">🥰</option>
+             <option value = "😙" style="font-size: 36px;">😙</option>
+             <option value = "☺" style="font-size: 36px;">☺</option>
+             <option value = "😍" style="font-size: 36px;">😍</option>
+             <option value = "😗" style="font-size: 36px;">😗</option>
+             <option value = "🥲" style="font-size: 36px;">🥲</option>
+             <option value = "😘" style="font-size: 36px;">😘</option>
+             <option value = "🤩" style="font-size: 36px;">🤩</option>
+             <option value = "😋" style="font-size: 36px;">😋</option>
+             <option value = "😛" style="font-size: 36px;">😛</option>
+             <option value = "😜" style="font-size: 36px;">😜</option>
+             <option value = "🤪" style="font-size: 36px;">🤪</option>
+             <option value = "😝" style="font-size: 36px;">😝</option>
+             <option value = "🤑" style="font-size: 36px;">🤑</option>
+             <option value = "🤔" style="font-size: 36px;">🤔</option>
+             <option value = "🤭" style="font-size: 36px;">🤭</option>
+             <option value = "🤗" style="font-size: 36px;">🤗</option>
+             <option value = "🤫" style="font-size: 36px;">🤫</option>
+             <option value = "😐" style="font-size: 36px;">😐</option>
+             <option value = "😶" style="font-size: 36px;">😶</option>
+             <option value = "🤨" style="font-size: 36px;">🤨</option>
+             <option value = "😬" style="font-size: 36px;">😬</option>
+             <option value = "😏" style="font-size: 36px;">😏</option>
+             <option value = "😑" style="font-size: 36px;">😑</option>
+             <option value = "😒" style="font-size: 36px;">😒</option>
+             <option value = "🙄" style="font-size: 36px;">🙄</option>
+             <option value = "🤐" style="font-size: 36px;">🤐</option>
+             <option value = "🤥" style="font-size: 36px;">🤥</option>
+             <option value = "😌" style="font-size: 36px;">😌</option>
+             <option value = "😔" style="font-size: 36px;">😔</option>
+             <option value = "😪" style="font-size: 36px;">😪</option>
+             <option value = "😴" style="font-size: 36px;">😴</option>
+             <option value = "🤤" style="font-size: 36px;">🤤</option>
+             <option value = "🥶" style="font-size: 36px;">🥶</option>
+             <option value = "🤧" style="font-size: 36px;">🤧</option>
+             <option value = "😷" style="font-size: 36px;">😷</option>
+             <option value = "🤯" style="font-size: 36px;">🤯</option>
+             <option value = "🥴" style="font-size: 36px;">🥴</option>
+             <option value = "😵" style="font-size: 36px;">😵</option>
+             <option value = "🤒" style="font-size: 36px;">🤒</option>
+             <option value = "🥵" style="font-size: 36px;">🥵</option>
+             <option value = "🤮" style="font-size: 36px;">🤮</option>
+             <option value = "🤕" style="font-size: 36px;">🤕</option>
+             <option value = "🤢" style="font-size: 36px;">🤢</option>
+             <option value = "🥸" style="font-size: 36px;">🥸</option>
+             <option value = "🤠" style="font-size: 36px;">🤠</option>
+             <option value = "🥳" style="font-size: 36px;">🥳</option>
+             <option value = "🤓" style="font-size: 36px;">🤓</option>
+             <option value = "😎" style="font-size: 36px;">😎</option>
+             <option value = "🧐" style="font-size: 36px;">🧐</option>
+             <option value = "😕" style="font-size: 36px;">😕</option>
+             <option value = "😖" style="font-size: 36px;">😖</option>
+             <option value = "😧" style="font-size: 36px;">😧</option>
+             <option value = "🥺" style="font-size: 36px;">🥺</option>
+             <option value = "😫" style="font-size: 36px;">😫</option>
+             <option value = "😱" style="font-size: 36px;">😱</option>
+             <option value = "😞" style="font-size: 36px;">😞</option>
+             <option value = "😯" style="font-size: 36px;">😯</option>
+             <option value = "😮" style="font-size: 36px;">😮</option>
+             <option value = "😭" style="font-size: 36px;">😭</option>
+             <option value = "😟" style="font-size: 36px;">😟</option>
+             <option value = "😓" style="font-size: 36px;">😓</option>
+             <option value = "😩" style="font-size: 36px;">😩</option>
+             <option value = "😢" style="font-size: 36px;">😢</option>
+             <option value = "😲" style="font-size: 36px;">😲</option>
+             <option value = "😨" style="font-size: 36px;">😨</option>
+             <option value = "🥱" style="font-size: 36px;">🥱</option>
+             <option value = "😳" style="font-size: 36px;">😳</option>
+             <option value = "🙁" style="font-size: 36px;">🙁</option>
+             <option value = "😥" style="font-size: 36px;">😥</option>
+             <option value = "😣" style="font-size: 36px;">😣</option>
+             <option value = "😦" style="font-size: 36px;">😦</option>
+             <option value = "☹" style="font-size: 36px;">☹</option>
+             <option value = "😰" style="font-size: 36px;">😰</option>
+           </optgroup>
+           <optgroup label="- Angry Faces -" style="font-size: 16px; text-align: center;">
+             <option value = "☠" style="font-size: 36px;">☠</option>
+             <option value = "😤" style="font-size: 36px;">😤</option>
+             <option value = "😈" style="font-size: 36px;">😈</option>
+             <option value = "😡" style="font-size: 36px;">😡</option>
+             <option value = "💀" style="font-size: 36px;">💀</option>
+             <option value = "👿" style="font-size: 36px;">👿</option>
+             <option value = "🤬" style="font-size: 36px;">🤬</option>
+             <option value = "😠" style="font-size: 36px;">😠</option>
+           </optgroup>
+           <optgroup label="- Costume Faces -" style="font-size: 16px; text-align: center;">
+             <option value = "💩" style="font-size: 36px;">💩</option>
+             <option value = "🤡" style="font-size: 36px;">🤡</option>
+             <option value = "🤖" style="font-size: 36px;">🤖</option>
+             <option value = "👽" style="font-size: 36px;">👽</option>
+             <option value = "👾" style="font-size: 36px;">👾</option>
+             <option value = "👻" style="font-size: 36px;">👻</option>
+             <option value = "👺" style="font-size: 36px;">👺</option>
+             <option value = "👹" style="font-size: 36px;">👹</option>
+           </optgroup>
+           <optgroup label="- Cat Faces -" style="font-size: 16px; text-align: center;">
+             <option value = "🙀" style="font-size: 36px;">🙀</option>
+             <option value = "😽" style="font-size: 36px;">😽</option>
+             <option value = "😸" style="font-size: 36px;">😸</option>
+             <option value = "😿" style="font-size: 36px;">😿</option>
+             <option value = "😾" style="font-size: 36px;">😾</option>
+             <option value = "😻" style="font-size: 36px;">😻</option>
+             <option value = "😺" style="font-size: 36px;">😺</option>
+             <option value = "😼" style="font-size: 36px;">😼</option>
+             <option value = "😹" style="font-size: 36px;">😹</option>
+           </optgroup>
+           <optgroup label="- Monkey Faces -" style="font-size: 16px; text-align: center;">
+             <option value = "🙉" style="font-size: 36px;">🙉</option>
+             <option value = "🙊" style="font-size: 36px;">🙊</option>
+             <option value = "🙈" style="font-size: 36px;">🙈</option>
+           </optgroup>
+            <optgroup label="- Fingers -" style="font-size: 16px; text-align: center;">
+              <option value = "🤚" style="font-size: 36px;">🤚</option>
+              <option value = "🖖" style="font-size: 36px;">🖖</option>
+              <option value = "👋" style="font-size: 36px;">👋</option>
+              <option value = "🖐" style="font-size: 36px;">🖐</option>
+              <option value = "✋" style="font-size: 36px;">✋</option>
+              <option value = "🤙" style="font-size: 36px;">🤙</option>
+              <option value = "🤞" style="font-size: 36px;">🤞</option>
+              <option value = "🤟" style="font-size: 36px;">🤟</option>
+              <option value = "🤘" style="font-size: 36px;">🤘</option>
+              <option value = "🤌" style="font-size: 36px;">🤌</option>
+              <option value = "🤏" style="font-size: 36px;">🤏</option>
+              <option value = "👌" style="font-size: 36px;">👌</option>
+              <option value = "✌" style="font-size: 36px;">✌</option>
+              <option value = "🖕" style="font-size: 36px;">🖕</option>
+              <option value = "👆" style="font-size: 36px;">👆</option>
+              <option value = "👇" style="font-size: 36px;">👇</option>
+              <option value = "👈" style="font-size: 36px;">👈</option>
+              <option value = "👉" style="font-size: 36px;">👉</option>
+              <option value = "☝" style="font-size: 36px;">☝</option>
+              <option value = "🤛" style="font-size: 36px;">🤛</option>
+              <option value = "🤜" style="font-size: 36px;">🤜</option>
+              <option value = "👍" style="font-size: 36px;">👍</option>
+              <option value = "✊" style="font-size: 36px;">✊</option>
+              <option value = "👊" style="font-size: 36px;">👊</option>
+              <option value = "👎" style="font-size: 36px;">👎</option>
+              <option value = "👐" style="font-size: 36px;">👐</option>
+              <option value = "🤝" style="font-size: 36px;">🤝</option>
+              <option value = "👏" style="font-size: 36px;">👏</option>
+              <option value = "🤲" style="font-size: 36px;">🤲</option>
+              <option value = "🙏" style="font-size: 36px;">🙏</option>
+              <option value = "🙌" style="font-size: 36px;">🙌</option>
+              <option value = "✍" style="font-size: 36px;">✍</option>
+              <option value = "🤳" style="font-size: 36px;">🤳</option>
+              <option value = "💅" style="font-size: 36px;">💅</option>
+            </optgroup>
+            <optgroup label="- Body Parts -" style="font-size: 16px; text-align: center;">
+              <option value = "🫁" style="font-size: 36px;">🫁</option>
+              <option value = "🫀" style="font-size: 36px;">🫀</option>
+              <option value = "👁" style="font-size: 36px;">👁</option>
+              <option value = "👄" style="font-size: 36px;">👄</option>
+              <option value = "👅" style="font-size: 36px;">👅</option>
+              <option value = "👂" style="font-size: 36px;">👂</option>
+              <option value = "👃" style="font-size: 36px;">👃</option>
+              <option value = "🦴" style="font-size: 36px;">🦴</option>
+              <option value = "👀" style="font-size: 36px;">👀</option>
+              <option value = "🦶" style="font-size: 36px;">🦶</option>
+              <option value = "🦵" style="font-size: 36px;">🦵</option>
+              <option value = "🦻" style="font-size: 36px;">🦻</option>
+              <option value = "🦷" style="font-size: 36px;">🦷</option>
+              <option value = "🦿" style="font-size: 36px;">🦿</option>
+              <option value = "🦾" style="font-size: 36px;">🦾</option>
+              <option value = "💪" style="font-size: 36px;">💪</option>
+              <option value = "🧠" style="font-size: 36px;">🧠</option>
+            </optgroup>
+            <optgroup label="- Person -" style="font-size: 16px; text-align: center;">
+              <option value = "🧓" style="font-size: 36px;">🧓</option>
+              <option value = "🧑" style="font-size: 36px;">🧑</option>
+              <option value = "🧒" style="font-size: 36px;">🧒</option>
+              <option value = "👩" style="font-size: 36px;">👩</option>
+              <option value = "👦" style="font-size: 36px;">👦</option>
+              <option value = "👧" style="font-size: 36px;">👧</option>
+              <option value = "👨" style="font-size: 36px;">👨</option>
+              <option value = "👱" style="font-size: 36px;">👱</option>
+              <option value = "👶" style="font-size: 36px;">👶</option>
+              <option value = "👴" style="font-size: 36px;">👴</option>
+              <option value = "👵" style="font-size: 36px;">👵</option>
+              <option value = "🧔" style="font-size: 36px;">🧔</option>
+            </optgroup>
+            <optgroup label="- Person Gesture -" style="font-size: 16px; text-align: center;">
+              <option value = "🙋" style="font-size: 36px;">🙋</option>
+              <option value = "🙍" style="font-size: 36px;">🙍</option>
+              <option value = "🙇" style="font-size: 36px;">🙇</option>
+              <option value = "🙎" style="font-size: 36px;">🙎</option>
+              <option value = "🧏" style="font-size: 36px;">🧏</option>
+              <option value = "🤦" style="font-size: 36px;">🤦</option>
+              <option value = "🙆" style="font-size: 36px;">🙆</option>
+              <option value = "💁" style="font-size: 36px;">💁</option>
+              <option value = "🤷" style="font-size: 36px;">🤷</option>
+              <option value = "🙅" style="font-size: 36px;">🙅</option>
+            </optgroup>
+            <optgroup label="- Person Role -" style="font-size: 16px; text-align: center;">
+              <option value = "👲" style="font-size: 36px;">👲</option>
+              <option value = "👷" style="font-size: 36px;">👷</option>
+              <option value = "💂" style="font-size: 36px;">💂</option>
+              <option value = "🥷" style="font-size: 36px;">🥷</option>
+              <option value = "🧕" style="font-size: 36px;">🧕</option>
+              <option value = "🕵" style="font-size: 36px;">🕵</option>
+              <option value = "👸" style="font-size: 36px;">👸</option>
+              <option value = "👳" style="font-size: 36px;">👳</option>
+              <option value = "👰" style="font-size: 36px;">👰</option>
+              <option value = "👮" style="font-size: 36px;">👮</option>
+              <option value = "🤱" style="font-size: 36px;">🤱</option>
+              <option value = "🤰" style="font-size: 36px;">🤰</option>
+              <option value = "🤴" style="font-size: 36px;">🤴</option>
+              <option value = "🤵" style="font-size: 36px;">🤵</option>
+            </optgroup>
+            <optgroup label="- Person Activty -" style="font-size: 16px; text-align: center;">
+              <option value = "🕴" style="font-size: 36px;">🕴</option>
+              <option value = "🧍" style="font-size: 36px;">🧍</option>
+              <option value = "💆" style="font-size: 36px;">💆</option>
+              <option value = "💇" style="font-size: 36px;">💇</option>
+              <option value = "💃" style="font-size: 36px;">💃</option>
+              <option value = "👯" style="font-size: 36px;">👯</option>
+              <option value = "🕺" style="font-size: 36px;">🕺</option>
+              <option value = "🏃" style="font-size: 36px;">🏃</option>
+              <option value = "🚶" style="font-size: 36px;">🚶</option>
+              <option value = "🧎" style="font-size: 36px;">🧎</option>
+              <option value = "🧗" style="font-size: 36px;">🧗</option>
+              <option value = "🧖" style="font-size: 36px;">🧖</option>
+            </optgroup>
+            <optgroup label="- Person Resting -" style="font-size: 16px; text-align: center;">
+              <option value = "🧘" style="font-size: 36px;">🧘</option>
+              <option value = "🛌" style="font-size: 36px;">🛌</option>
+              <option value = "🛀" style="font-size: 36px;">🛀</option>
+            </optgroup>
+            <optgroup label="- Family -" style="font-size: 16px; text-align: center;">
+              <option value = "💏" style="font-size: 36px;">💏</option>
+              <option value = "👬" style="font-size: 36px;">👬</option>
+              <option value = "👪" style="font-size: 36px;">👪</option>
+              <option value = "👭" style="font-size: 36px;">👭</option>
+              <option value = "👫" style="font-size: 36px;">👫</option>
+              <option value = "💑" style="font-size: 36px;">💑</option>
+            </optgroup>
+            <optgroup label="- Person Symbol -" style="font-size: 16px; text-align: center;">
+              <option value = "🫂" style="font-size: 36px;">🫂</option>
+              <option value = "👤" style="font-size: 36px;">👤</option>
+              <option value = "👣" style="font-size: 36px;">👣</option>
+              <option value = "🗣" style="font-size: 36px;">🗣</option>
+              <option value = "👥" style="font-size: 36px;">👥</option>
+            </optgroup>
+            <optgroup label="- Hair Style -" style="font-size: 16px; text-align: center;">
+              <option value = "🦳" style="font-size: 36px;">🦳</option>
+              <option value = "🦲" style="font-size: 36px;">🦲</option>
+              <option value = "🦰" style="font-size: 36px;">🦰</option>
+              <option value = "🦱" style="font-size: 36px;">🦱</option>
+            </optgroup>
+            <optgroup label="- Mammals -" style="font-size: 16px; text-align: center;">
+              <option value = "🐿" style="font-size: 36px;">🐿</option>
+              <option value = "🐮" style="font-size: 36px;">🐮</option>
+              <option value = "🐭" style="font-size: 36px;">🐭</option>
+              <option value = "🐫" style="font-size: 36px;">🐫</option>
+              <option value = "🐪" style="font-size: 36px;">🐪</option>
+              <option value = "🐯" style="font-size: 36px;">🐯</option>
+              <option value = "🦏" style="font-size: 36px;">🦏</option>
+              <option value = "🦍" style="font-size: 36px;">🦍</option>
+              <option value = "🦌" style="font-size: 36px;">🦌</option>
+              <option value = "🦊" style="font-size: 36px;">🦊</option>
+              <option value = "🦒" style="font-size: 36px;">🦒</option>
+              <option value = "🐀" style="font-size: 36px;">🐀</option>
+              <option value = "🐨" style="font-size: 36px;">🐨</option>
+              <option value = "🦘" style="font-size: 36px;">🦘</option>
+              <option value = "🦇" style="font-size: 36px;">🦇</option>
+              <option value = "🐎" style="font-size: 36px;">🐎</option>
+              <option value = "🐐" style="font-size: 36px;">🐐</option>
+              <option value = "🐏" style="font-size: 36px;">🐏</option>
+              <option value = "🐒" style="font-size: 36px;">🐒</option>
+              <option value = "🐑" style="font-size: 36px;">🐑</option>
+              <option value = "🐕" style="font-size: 36px;">🐕</option>
+              <option value = "🐖" style="font-size: 36px;">🐖</option>
+              <option value = "🐗" style="font-size: 36px;">🐗</option>
+              <option value = "🦓" style="font-size: 36px;">🦓</option>
+              <option value = "🐱" style="font-size: 36px;">🐱</option>
+              <option value = "🦣" style="font-size: 36px;">🦣</option>
+              <option value = "🦛" style="font-size: 36px;">🦛</option>
+              <option value = "🐰" style="font-size: 36px;">🐰</option>
+              <option value = "🦝" style="font-size: 36px;">🦝</option>
+              <option value = "🐩" style="font-size: 36px;">🐩</option>
+              <option value = "🦔" style="font-size: 36px;">🦔</option>
+              <option value = "🐁" style="font-size: 36px;">🐁</option>
+              <option value = "🐄" style="font-size: 36px;">🐄</option>
+              <option value = "🐵" style="font-size: 36px;">🐵</option>
+              <option value = "🐆" style="font-size: 36px;">🐆</option>
+              <option value = "🐅" style="font-size: 36px;">🐅</option>
+              <option value = "🐇" style="font-size: 36px;">🐇</option>
+              <option value = "🐈" style="font-size: 36px;">🐈</option>
+              <option value = "🦄" style="font-size: 36px;">🦄</option>
+              <option value = "🐘" style="font-size: 36px;">🐘</option>
+              <option value = "🐃" style="font-size: 36px;">🐃</option>
+              <option value = "🐴" style="font-size: 36px;">🐴</option>
+              <option value = "🐂" style="font-size: 36px;">🐂</option>
+              <option value = "🐶" style="font-size: 36px;">🐶</option>
+              <option value = "🐷" style="font-size: 36px;">🐷</option>
+              <option value = "🦡" style="font-size: 36px;">🦡</option>
+              <option value = "🦥" style="font-size: 36px;">🦥</option>
+              <option value = "🦧" style="font-size: 36px;">🦧</option>
+              <option value = "🦦" style="font-size: 36px;">🦦</option>
+              <option value = "🦙" style="font-size: 36px;">🦙</option>
+              <option value = "🦨" style="font-size: 36px;">🦨</option>
+              <option value = "🐹" style="font-size: 36px;">🐹</option>
+              <option value = "🦫" style="font-size: 36px;">🦫</option>
+              <option value = "🦮" style="font-size: 36px;">🦮</option>
+              <option value = "🐽" style="font-size: 36px;">🐽</option>
+              <option value = "🐾" style="font-size: 36px;">🐾</option>
+              <option value = "🐼" style="font-size: 36px;">🐼</option>
+              <option value = "🐻" style="font-size: 36px;">🐻</option>
+              <option value = "🐺" style="font-size: 36px;">🐺</option>
+              <option value = "🦁" style="font-size: 36px;">🦁</option>
+              <option value = "🦬" style="font-size: 36px;">🦬</option>
+            </optgroup>
+            <optgroup label="- Birds -" style="font-size: 16px; text-align: center;">
+              <option value = "🐣" style="font-size: 36px;">🐣</option>
+              <option value = "🐔" style="font-size: 36px;">🐔</option>
+              <option value = "🐤" style="font-size: 36px;">🐤</option>
+              <option value = "🕊" style="font-size: 36px;">🕊</option>
+              <option value = "🦩" style="font-size: 36px;">🦩</option>
+              <option value = "🐥" style="font-size: 36px;">🐥</option>
+              <option value = "🦢" style="font-size: 36px;">🦢</option>
+              <option value = "🦤" style="font-size: 36px;">🦤</option>
+              <option value = "🐧" style="font-size: 36px;">🐧</option>
+              <option value = "🐦" style="font-size: 36px;">🐦</option>
+              <option value = "🐓" style="font-size: 36px;">🐓</option>
+              <option value = "🦜" style="font-size: 36px;">🦜</option>
+              <option value = "🦚" style="font-size: 36px;">🦚</option>
+              <option value = "🦃" style="font-size: 36px;">🦃</option>
+              <option value = "🦅" style="font-size: 36px;">🦅</option>
+              <option value = "🦉" style="font-size: 36px;">🦉</option>
+              <option value = "🪶" style="font-size: 36px;">🪶</option>
+              <option value = "🦆" style="font-size: 36px;">🦆</option>
+            </optgroup>
+            <optgroup label="- Frog -" style="font-size: 16px; text-align: center;">
+              <option value = "🐸" style="font-size: 36px;">🐸</option>
+            </optgroup>
+            <optgroup label="- Reptiles -" style="font-size: 16px; text-align: center;">
+              <option value = "🐍" style="font-size: 36px;">🐍</option>
+              <option value = "🦎" style="font-size: 36px;">🦎</option>
+              <option value = "🐢" style="font-size: 36px;">🐢</option>
+              <option value = "🐊" style="font-size: 36px;">🐊</option>
+              <option value = "🦕" style="font-size: 36px;">🦕</option>
+              <option value = "🦖" style="font-size: 36px;">🦖</option>
+              <option value = "🐉" style="font-size: 36px;">🐉</option>
+              <option value = "🐲" style="font-size: 36px;">🐲</option>
+            </optgroup>
+            <optgroup label="- Marine Creatures -" style="font-size: 16px; text-align: center;">
+              <option value = "🦭" style="font-size: 36px;">🦭</option>
+              <option value = "🐋" style="font-size: 36px;">🐋</option>
+              <option value = "🦈" style="font-size: 36px;">🦈</option>
+              <option value = "🐚" style="font-size: 36px;">🐚</option>
+              <option value = "🐳" style="font-size: 36px;">🐳</option>
+              <option value = "🐟" style="font-size: 36px;">🐟</option>
+              <option value = "🐙" style="font-size: 36px;">🐙</option>
+              <option value = "🐬" style="font-size: 36px;">🐬</option>
+              <option value = "🐡" style="font-size: 36px;">🐡</option>
+              <option value = "🐠" style="font-size: 36px;">🐠</option>
+            </optgroup>
+            <optgroup label="- Bugs -" style="font-size: 16px; text-align: center;">
+              <option value = "🦋" style="font-size: 36px;">🦋</option>
+              <option value = "🦗" style="font-size: 36px;">🦗</option>
+              <option value = "🦟" style="font-size: 36px;">🦟</option>
+              <option value = "🦠" style="font-size: 36px;">🦠</option>
+              <option value = "🪱" style="font-size: 36px;">🪱</option>
+              <option value = "🪲" style="font-size: 36px;">🪲</option>
+              <option value = "🪳" style="font-size: 36px;">🪳</option>
+              <option value = "🦂" style="font-size: 36px;">🦂</option>
+              <option value = "🪰" style="font-size: 36px;">🪰</option>
+              <option value = "🐝" style="font-size: 36px;">🐝</option>
+              <option value = "🐞" style="font-size: 36px;">🐞</option>
+              <option value = "🐛" style="font-size: 36px;">🐛</option>
+              <option value = "🐜" style="font-size: 36px;">🐜</option>
+              <option value = "🕸" style="font-size: 36px;">🕸</option>
+              <option value = "🐌" style="font-size: 36px;">🐌</option>
+              <option value = "🕷" style="font-size: 36px;">🕷</option>
+            </optgroup>
+           </select>
+      </div>
+      <div class="sdpi-heading">Custom Event Image</div>
+      <div class="sdpi-item" id="vKrabs_FileSelector">
+        <div class="sdpi-item-label">Select File</div>
+        <div class="sdpi-item-group file" id="filepickergroup">
+            <input class="sdProperty sdFile" type="file" id="vKrabs_CustomImage" accept=".jpg, .jpeg, .png" oninput="setSettings()">
+            <label class="sdpi-file-info" for="vKrabs_CustomImage" id="vKrabs_CustomImageFilename">no file...</label>
+            <label class="sdpi-file-label" for="vKrabs_CustomImage" id="vKrabs_CustomImageFilename">Choose file...</label>
+         </div>
+       </div>
       <details class="message">
-          <summary>If you change the "Day of Event" icon, you may need to change the title color in the Title Menu for better visibility. However, You should NOT set a title.
-          <br><br>For full setup instructions go to: <span class="linkspan" onclick="openWebsite()">https://www.krabs.me/streamdeck-plugins</span></summary>
+          <summary>If you use a -Custom Event Image-, The background color from both the -Countdown- options and the -Event- options are ignored.
+            <br><br>For full setup instructions go to: <span class="linkspan" onclick="openWebsite()">https://www.krabs.me/streamdeck-plugins</span></summary>
       </details>
   </div>
 

@@ -17,10 +17,8 @@
             let KrabsDaysUntil = {
                 type: "com.krabs.daysuntil.action",
                 onKeyDown: function (context, settings, coordinates, userDesiredState) {
-                    /* Code here will run when the key is pressed https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#keydown */
                 },
                 onKeyUp: function (context, settings, coordinates, userDesiredState) {
-                    /* Code here will run when the key is released https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#keyup */
                     settingsCache[context] = settings;
                 },
                 fKrabs_DaysUntil: function (context, settings) {
@@ -28,18 +26,66 @@
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                       var vEventName_Line1 = payload['vKrabs_EventName'];
                     } else {
-                      var vEventName_Line1 = "*No Date";
+                      var vEventName_Line1 = "Tomorrow";
                     }
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                       var vEventName_Line2 = payload['vKrabs_EventName2'];
                     } else {
-                      var vEventName_Line2 = "Set!";
+                      var vEventName_Line2 = "";
                     }
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                       var vEventDate = payload['vKrabs_EventDate'];
                     } else {
                       var vDate_PlaceHolder = new Date();
-                      var vEventDate = (vDate_PlaceHolder.getFullYear() + "-" + (vDate_PlaceHolder.getMonth()+1) + "-" + (vDate_PlaceHolder.getDate()+1))
+                      var vDate_PlaceHolder = new Date();
+                      var tomorrow =  new Date()
+                      tomorrow.setDate(vDate_PlaceHolder.getDate() + 1)
+                      var vEventDate = (tomorrow.getFullYear() + "-" + (tomorrow.getMonth()+1) + "-" + (tomorrow.getDate()))
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomBarColor')) {
+                      var vCustomBarColor = payload['vKrabs_CustomBarColor'];
+                    } else {
+                      var vCustomBarColor = "red";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomBarTextColor')) {
+                      var vCustomBarTextColor = payload['vKrabs_CustomBarTextColor'];
+                    } else {
+                      var vCustomBarTextColor = "white";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomCountdownBackgroundColor')) {
+                      var vCustomCountdownBackgroundColor = payload['vKrabs_CustomCountdownBackgroundColor'];
+                    } else {
+                      var vCustomCountdownBackgroundColor = "white";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomCountdownTextColor')) {
+                      var vCustomCountdownTextColor = payload['vKrabs_CustomCountdownTextColor'];
+                    } else {
+                      var vCustomCountdownTextColor = "black";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_Readability')) {
+                      var vReadability = payload['vKrabs_Readability'];
+                    } else {
+                      var vReadability = "false";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomEventBackgroundColor')) {
+                      var vCustomEventBackgroundColor = payload['vKrabs_CustomEventBackgroundColor'];
+                    } else {
+                      var vCustomEventBackgroundColor = "white";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomEventTextColor')) {
+                      var vCustomEventTextColor = payload['vKrabs_CustomEventTextColor'];
+                    } else {
+                      var vCustomEventTextColor = "black";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_OverlayIcon')) {
+                      var vOverlayIcon = payload['vKrabs_OverlayIcon'];
+                    } else {
+                      var vOverlayIcon = "⭐";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomImage') && payload['vKrabs_CustomImage'] !== "no file...") {
+                      var vCustomImage = payload['vKrabs_CustomImage'];
+                    } else {
+                      var vCustomImage = "resources/images/actionDefaultImage.png";
                     }
 
                     function getData() {
@@ -47,77 +93,114 @@
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                         var vEventName_Line1 = payload['vKrabs_EventName'];
                       } else {
-                        var vEventName_Line1 = "*No Date";
+                        var vEventName_Line1 = "Tomorrow";
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                         var vEventName_Line2 = payload['vKrabs_EventName2'];
                       } else {
-                        var vEventName_Line2 = "Set!";
+                        var vEventName_Line2 = "";
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                         var vEventDate = payload['vKrabs_EventDate'];
                       } else {
                         var vDate_PlaceHolder = new Date();
-                        var vEventDate = (vDate_PlaceHolder.getFullYear() + "-" + (vDate_PlaceHolder.getMonth()+1) + "-" + (vDate_PlaceHolder.getDate()+1))
+                        var vDate_PlaceHolder = new Date();
+                        var tomorrow =  new Date()
+                        tomorrow.setDate(vDate_PlaceHolder.getDate() + 1)
+                        var vEventDate = (tomorrow.getFullYear() + "-" + (tomorrow.getMonth()+1) + "-" + (tomorrow.getDate()))
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomBarColor')) {
+                        var vCustomBarColor = payload['vKrabs_CustomBarColor'];
+                      } else {
+                        var vCustomBarColor = "red";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomBarTextColor')) {
+                        var vCustomBarTextColor = payload['vKrabs_CustomBarTextColor'];
+                      } else {
+                        var vCustomBarTextColor = "white";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomCountdownBackgroundColor')) {
+                        var vCustomCountdownBackgroundColor = payload['vKrabs_CustomCountdownBackgroundColor'];
+                      } else {
+                        var vCustomCountdownBackgroundColor = "white";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomCountdownTextColor')) {
+                        var vCustomCountdownTextColor = payload['vKrabs_CustomCountdownTextColor'];
+                      } else {
+                        var vCustomCountdownTextColor = "black";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_Readability')) {
+                        var vReadability = payload['vKrabs_Readability'];
+                      } else {
+                        var vReadability = "false";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomEventBackgroundColor')) {
+                        var vCustomEventBackgroundColor = payload['vKrabs_CustomEventBackgroundColor'];
+                      } else {
+                        var vCustomEventBackgroundColor = "white";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomEventTextColor')) {
+                        var vCustomEventTextColor = payload['vKrabs_CustomEventTextColor'];
+                      } else {
+                        var vCustomEventTextColor = "black";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_OverlayIcon')) {
+                        var vOverlayIcon = payload['vKrabs_OverlayIcon'];
+                      } else {
+                        var vOverlayIcon = "⭐";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomImage') && payload['vKrabs_CustomImage'] !== "no file...") {
+                        var vCustomImage = payload['vKrabs_CustomImage'];
+                      } else {
+                        var vCustomImage = "resources/images/actionDefaultImage.png";
                       }
 
-                      vDate_Future = new Date(new Date(vEventDate));
-                      vDate_Now = new Date();
+                      var vDate_Future = new Date(new Date(vEventDate));
+                      var vDate_Now = new Date();
 
-                      vSeconds = Math.floor((vDate_Future - (vDate_Now))/1000);
-                      vMinutes = Math.floor(vSeconds/60);
-                      vHours = Math.floor(vMinutes/60);
-                      vDays = Math.floor(vHours/24);
+                      var vSeconds = Math.floor((vDate_Future - (vDate_Now))/1000);
+                      var vMinutes = Math.floor(vSeconds/60);
+                      var vHours = Math.floor(vMinutes/60);
+                      var vDays = Math.floor(vHours/24);
 
-                      vHours = vHours-(vDays*24);
-                      vMinutes = vMinutes-(vDays*24*60)-(vHours*60);
-                      vSeconds = vSeconds-(vDays*24*60*60)-(vHours*60*60)-(vMinutes*60);
-                      //console.warn("Days: ", (vDays+1));
+                      var vHours = vHours-(vDays*24);
+                      var vMinutes = vMinutes-(vDays*24*60)-(vHours*60);
+                      var vSeconds = vSeconds-(vDays*24*60*60)-(vHours*60*60)-(vMinutes*60);
                       var vDisplay_vEventName_Line1 = vEventName_Line1
                       var vDisplay_vEventName_Line2 = vEventName_Line2
                       var vDisplay_TimeLeft = (vDays+1)
-                      if (vDisplay_TimeLeft > 0) {
-                        KrabsDaysUntil.SetTitle(context, "");
-                        var inState = 0
-                        setState(context, inState);
-                        var imageUrl = "resources/images/actionDefaultImage.png";
-                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
-                        var vAvatarBase64 = base64Img;
-                        setImage(context, vAvatarBase64);
-                        KrabsDaysUntil.SetTitle(context, "");
-                        });
-                      } else if (vDisplay_TimeLeft == 0 && vEventDate) {
-                        KrabsDaysUntil.SetTitle(context, "");
-                        var inState = 1
-                        setState(context, inState);
-                        var imageUrl = "resources/images/tday.png";
-                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
-                        var vAvatarBase64 = base64Img;
-                        setImage(context, vAvatarBase64);
-                        });
-                      } else if (!vEventDate) {
-                        KrabsDaysUntil.SetTitle(context, "");
-                        var inState = 1
-                        setState(context, inState);
-                        var imageUrl = "resources/images/actionDefaultImage.png";
-                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
-                        var vAvatarBase64 = base64Img;
-                        setImage(context, vAvatarBase64);
-                        });
+                      if (vDisplay_TimeLeft > 0 || vDisplay_TimeLeft == 0) {
+                        var imageUrl = vCustomImage;
                       } else {
+                        var imageUrl = "resources/images/expired.png"
+                      }
                         KrabsDaysUntil.SetTitle(context, "");
-                        var inState = 1
-                        setState(context, inState);
-                        var imageUrl = "resources/images/expired.png";
-                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, function(base64Img){
+                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, function(base64Img){
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
+                        KrabsDaysUntil.SetTitle(context, "");
                         });
-                        KrabsDaysUntil.SetTitle(context, "Expired!");
-                      }
                     }
+                  var vDate_Now
+                  var vMinutes
+                  var vHour24
                   getData();
                   setTimeout(function run() {
+                    getData();
+                    var vDate_Now = new Date();
+                    var vMinutes = parseInt((vDate_Now.toLocaleString([navigator.language], { minute: '2-digit' })), 10);
+                    var vHour24 = vDate_Now.getHours()
+
+                    if (vHour24 < 23 && vMinutes < 58) {
+                      var vSleep = ((60 - vMinutes -2) * 60 * 1000)
+                      //console.log("sleep: " + (vSleep / 1000 / 60) + " mins | @" + vHour24 + ":" + vMinutes)
+                      setTimeout(run, vSleep);
+                    } else {
+                    console.log("sleep: 1 sec")
+                      setTimeout(run, 1000);
+                    }
+                  }, 1000);
+                  /*setTimeout(function run() {
                     getData();
                     var payload = settingsCache[context];
                     var vEventName_Line1 = payload['vKrabs_EventName'];
@@ -126,15 +209,11 @@
                       var vEventDate = payload['vKrabs_EventDate'];
                     }
                     setTimeout(run, 1000);
-                  }, 1000);
+                  }, 1000);*/
                 },
-                // End of fKrabs_DaysUntil function
+// End of fKrabs_DaysUntil function
 
                 onWillAppear: function (context, settings, coordinates) {
-                    /* Code here will run when the Stream Deck application is opened, the user switches between profiles or when a user adds the action
-                        to their Stream Deck https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#willappear
-                    */
-                    //console.log("onWillAppear context: ", context, " settings: ", settings);
                     settingsCache[context] = settings;
                     var payload = settingsCache[context];
                     KrabsDaysUntil.fKrabs_DaysUntil(context, settings);
@@ -148,7 +227,6 @@
                 },
                 getSettings: function (context, payload) {
                     websocket.send(context, 'getSettings', {});
-                    //console.log(settings)
                 },
                 SetSettings: function (context, settings) {
                     var json = {
@@ -156,7 +234,6 @@
                         "context": context,
                         "payload": settings
                     };
-
                     websocket.send(JSON.stringify(json));
                     settingsCache[context] = settings;
                     //console.log("New Settings", settings);
@@ -167,119 +244,158 @@
                 }
             };
 // End of let KrabsDaysUntil definition
-            function canvasShake(context) {
-              function fShake(context, vPosX, vPosY, vRotate) {
-                var imageUrl = "resources/images/actionDefaultImage.png";
-                convertImgToBase64_motion(imageUrl, vPosX, vPosY, vRotate, function(base64Img){
-                var vAvatarBase64 = base64Img;
-                setImage(context, vAvatarBase64);
-                });
-              };
-              setTimeout(function() { fShake(context,3,1,0) }, 100);
-              setTimeout(function() { fShake(context,0,0,0) }, 200);
-              setTimeout(function() { fShake(context,-5,-2,0) }, 300);
-              setTimeout(function() { fShake(context,6,1,0) }, 400);
-              setTimeout(function() { fShake(context,-3,0,0) }, 500);
-              setTimeout(function() { fShake(context,1,2,0) }, 600);
-              setTimeout(function() { fShake(context,0,-1,0) }, 700);
-              setTimeout(function() { fShake(context,-2,0,0) }, 800);
-              setTimeout(function() { fShake(context,4,2,0) }, 900);
-              setTimeout(function() { fShake(context,0,0,0) }, 1000);
-            };
 
-            function convertImgToBase64_text(url, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, callback, outputFormat){
+            function convertImgToBase64_text(url, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, callback, outputFormat){
               var canvas = document.createElement('CANVAS');
               var ctx = canvas.getContext('2d');
               var img = new Image;
               img.crossOrigin = 'Anonymous';
               img.onload = function(){
-                  canvas.height = img.height;
-                  canvas.width = img.width;
-                    ctx.drawImage(img,0,0);
+                canvas.height = "72";
+                canvas.width = "72";
+                  ctx.drawImage(img,0,0,72,72);
                     // Text, width, height
+                    if (vDisplay_TimeLeft > 0) {
+                      if (url == "resources/images/actionDefaultImage.png") {
+                        ctx.fillStyle = vCustomCountdownBackgroundColor;
+                        ctx.fillRect(0, 0, 72, 72);
+                      }
+                      ctx.fillStyle = vCustomBarColor;
+                      ctx.fillRect(0, 0, 72, 18);
+                    } else if (vDisplay_TimeLeft == 0) {
+                      ctx.fillStyle = vCustomBarColor;
+                      ctx.fillRect(0, 0, 72, 18);
+                    } else {
+                      ctx.fillStyle = vCustomCountdownBackgroundColor; //expired
+                      ctx.fillRect(0, 0, 72, 72);
+                      ctx.fillStyle = vCustomBarColor;
+                      ctx.fillRect(0, 0, 72, 18);
+                    }
                     if (vDisplay_TimeLeft > 0) {
                       if (!vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
                         vPosition = 52
                       } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
-                        vPosition = 46
+                        vPosition = 49
                       } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
-                        vPosition = 46
+                        vPosition = 49 //46
                       } else {
-                        vPosition = 43
+                        vPosition = 46
                       }
                       ctx.font = "bold 13px Arial";
-                      ctx.fillStyle = 'white';
+                      ctx.fillStyle = vCustomBarTextColor;
                       ctx.textAlign = 'center';
-                      ctx.fillText("Days Until", 36, 12);
-
+                      ctx.fillText("Days Until", 36, 13);
                       ctx.font = "28px Impact";
-                      ctx.fillStyle = 'black';
+                      ctx.fillStyle = vCustomCountdownTextColor;
                       ctx.textAlign = 'center';
+                      if (vReadability == true) {
+                        ctx.shadowOffsetX = 4;
+                        ctx.shadowOffsetY = 4;
+                        ctx.shadowColor = "rgba(0,0,0,0.9)";
+                        ctx.shadowBlur = 2;
+                        ctx.strokeStyle = '#515A5A';
+                        ctx.strokeText("+" + vDisplay_TimeLeft, 36, vPosition);
+                      }
                       ctx.fillText("+" + vDisplay_TimeLeft, 36, vPosition);
-
+                      ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow off
                       if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#d00000';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 58);
 
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#d00000';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
 
                       } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#d00000';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line1, 36, 60);
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 68);
 
                       } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = '#d00000';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line2, 36, 60);
+                        ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
                       }
 
                     } else if (vDisplay_TimeLeft == 0) {
+                      if (!vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        vPosition = 52
+                      } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        vPosition = 49
+                      } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        vPosition = 49 //46
+                      } else {
+                        vPosition = 46
+                      }
+                      if (url == "resources/images/actionDefaultImage.png") {
+                        ctx.fillStyle = vCustomCountdownBackgroundColor;
+                        ctx.fillRect(0, 0, 72, 72);
+                      }
+                      ctx.fillStyle = vCustomBarColor;
+                      ctx.fillRect(0, 0, 72, 18);
+                      ctx.font = "bold 13px Arial";
+                      ctx.fillStyle = vCustomBarTextColor;
+                      ctx.textAlign = 'center';
+                      ctx.fillText("Today!", 36, 13);
+
+                      ctx.font = "28px Impact";
+                      ctx.fillStyle = vCustomCountdownTextColor;
+                      ctx.textAlign = 'center';
+                      if (url !== "resources/images/actionDefaultImage.png") {
+                        ctx.fillText(vOverlayIcon, 56, (vPosition -4));
+                      } else {
+                        ctx.fillText(vOverlayIcon, 36, (vPosition -4));
+                      }
                       if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
-                        ctx.shadowOffsetX = 2;
-                        ctx.shadowOffsetY = 2;
-                        ctx.shadowColor = "rgba(0,0,0,0.2)";
-                        ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'black';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line1, 36, 56);
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 58);
 
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'black';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
                         ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
                       } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
-                        ctx.shadowOffsetX = 2;
-                        ctx.shadowOffsetY = 2;
-                        ctx.shadowColor = "rgba(0,0,0,0.2)";
-                        ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'black';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line1, 36, 60);
-
+                        ctx.fillText(vDisplay_vEventName_Line1, 36, 68);
                       } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
-                        ctx.shadowOffsetX = 2;
-                        ctx.shadowOffsetY = 2;
-                        ctx.shadowColor = "rgba(0,0,0,0.2)";
-                        ctx.shadowBlur = 2;
                         ctx.font = "bold 13px Arial";
-                        ctx.fillStyle = 'black';
+                        ctx.fillStyle = vCustomEventTextColor;
                         ctx.textAlign = 'center';
-                        ctx.fillText(vDisplay_vEventName_Line2, 36, 60);
+                        ctx.fillText(vDisplay_vEventName_Line2, 36, 68);
                       }
+                    } else {
+                      if (!vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        vPosition = 52
+                      } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
+                        vPosition = 49
+                      } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
+                        vPosition = 49 //46
+                      } else {
+                        vPosition = 46
+                      }
+                      ctx.font = "bold 13px Arial";
+                      ctx.fillStyle = vCustomBarTextColor;
+                      ctx.textAlign = 'center';
+                      ctx.fillText("Expired!", 36, 13);
+
+                      ctx.font = "28px Impact";
+                      ctx.fillStyle = vCustomCountdownTextColor;
+                      ctx.textAlign = 'center';
+                      ctx.fillText("🔕", 36, vPosition);
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = vCustomEventTextColor;
+                        ctx.textAlign = 'center';
+                        ctx.fillText("Expired!", 36, 68);
                     }
-                    // shape
-                    //ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-                    //ctx.fillRect(30, 30, 20, 20);
                     var dataURL = canvas.toDataURL(outputFormat || 'image/png');
                     callback.call(this, dataURL);
                   // Clean up
@@ -287,41 +403,7 @@
               };
               img.src = url;
             };
-
-            function convertImgToBase64_motion(url, vPosX, vPosY, vRotate, callback, outputFormat){
-              var canvas = document.createElement('CANVAS');
-              var ctx = canvas.getContext('2d');
-              var img = new Image;
-              img.crossOrigin = 'Anonymous';
-              img.onload = function(){
-                  canvas.height = img.height;
-                  canvas.width = img.width;
-                    //ctx.rotate(vRotate*Math.PI/180);
-                    ctx.drawImage(img,vPosX,vPosY);
-                    var dataURL = canvas.toDataURL(outputFormat || 'image/png');
-                    callback.call(this, dataURL);
-                  // Clean up
-                    canvas = null;
-              };
-              img.src = url;
-            };
-
-            function convertImgToBase64(url, callback, outputFormat){
-              var canvas = document.createElement('CANVAS');
-              var ctx = canvas.getContext('2d');
-              var img = new Image;
-              img.crossOrigin = 'Anonymous';
-              img.onload = function(){
-                  canvas.height = img.height;
-                  canvas.width = img.width;
-                    ctx.drawImage(img,0,0);
-                    var dataURL = canvas.toDataURL(outputFormat || 'image/png');
-                    callback.call(this, dataURL);
-                  // Clean up
-                    canvas = null;
-              };
-              img.src = url;
-            };
+            // Log message to %APPDATA%\Elgato\StreamDeck\logs\<action.name0.log
             function logMessage(context, vLogMessage) {
                 if (websocket) {
                     var json = {

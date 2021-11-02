@@ -11,14 +11,6 @@
                   "TitleColor": "#ffffff",
                   "FontStyle": "Bold",
                   "FontSize": "9"
-                },
-                {
-                  "Image": "resources/images/tday",
-                  "TitleAlignment": "center",
-                  "FontFamily": "Arial",
-                  "TitleColor": "#ffffff",
-                  "FontStyle": "Bold",
-                  "FontSize": "9"
                 }
               ],
             "PropertyInspectorPath": "daysuntil_pi.html",
@@ -33,11 +25,11 @@
     "Category": "Krabs - Stream Deck Labs",
     "CategoryIcon": "resources/images/categoryIcon",
     "CodePath": "daysuntil.html",
-    "Description": "Shows the number of days left until the date you set! Customizable image for Day Of Event.",
+    "Description": "Shows the number of days remaining until the date you set! Customizable event text, colors, Day of Event overlay image, & custom image for -Day Of Event-.",
     "Name": "Days Until  ___",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
-    "Version": "1.0.8",
+    "Version": "1.0.9",
     "OS": [
         { "Platform": "windows", "MinimumVersion": "10" },
         { "Platform": "mac", "MinimumVersion": "10.11" }
