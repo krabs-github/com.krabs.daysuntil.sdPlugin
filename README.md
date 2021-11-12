@@ -3,7 +3,7 @@ Days Until  ___
 By Krabs
 
 Overview
-Shows the number of days left until the date you set! Customizable image for "Day Of Event".
+Shows the number of days remaining until the date you set! Customizable event text, colors, Day of Event overlay image, & custom image for "Day Of Event".
 
 Helpful Links
 https://www.krabs.me/streamdeck-plugins/days-until
