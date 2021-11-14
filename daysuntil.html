@@ -161,7 +161,7 @@
                       var vSeconds = Math.floor((vDate_Future - (vDate_Now))/1000);
                       var vMinutes = Math.floor(vSeconds/60);
                       var vHours = Math.floor(vMinutes/60);
-                      var vDays = Math.floor(vHours/24);
+                      var vDays = Math.round(Math.floor(vHours/24));
 
                       var vHours = vHours-(vDays*24);
                       var vMinutes = vMinutes-(vDays*24*60)-(vHours*60);
@@ -169,6 +169,7 @@
                       var vDisplay_vEventName_Line1 = vEventName_Line1
                       var vDisplay_vEventName_Line2 = vEventName_Line2
                       var vDisplay_TimeLeft = (vDays+1)
+
                       if (vDisplay_TimeLeft > 0 || vDisplay_TimeLeft == 0) {
                         var imageUrl = vCustomImage;
                       } else {
@@ -378,7 +379,7 @@
                       } else if (vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
                         vPosition = 49
                       } else if (!vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
-                        vPosition = 49 //46
+                        vPosition = 49
                       } else {
                         vPosition = 46
                       }
