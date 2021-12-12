@@ -36,9 +36,10 @@
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                       var vEventDate = payload['vKrabs_EventDate'];
                     } else {
-                      var vDate_PlaceHolder = new Date();
-                      var vDate_PlaceHolder = new Date();
-                      var tomorrow =  new Date()
+                      var vDate_PlaceHolder = new Date()
+                      var vDate_PlaceHolder = new Date(vDate_PlaceHolder.toLocaleString([navigator.language]));
+                      var tomorrow = new Date()
+                      var tomorrow = new Date(tomorrow.toLocaleString([navigator.language]))
                       tomorrow.setDate(vDate_PlaceHolder.getDate() + 1)
                       var vEventDate = (tomorrow.getFullYear() + "-" + (tomorrow.getMonth()+1) + "-" + (tomorrow.getDate()))
                     }
@@ -103,9 +104,10 @@
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                         var vEventDate = payload['vKrabs_EventDate'];
                       } else {
-                        var vDate_PlaceHolder = new Date();
-                        var vDate_PlaceHolder = new Date();
+                        var vDate_PlaceHolder = new Date()
+                        var vDate_PlaceHolder = new Date(vDate_PlaceHolder.toLocaleString([navigator.language]));
                         var tomorrow =  new Date()
+                        var tomorrow =  new Date(tomorrow.toLocaleString([navigator.language]))
                         tomorrow.setDate(vDate_PlaceHolder.getDate() + 1)
                         var vEventDate = (tomorrow.getFullYear() + "-" + (tomorrow.getMonth()+1) + "-" + (tomorrow.getDate()))
                       }
@@ -156,7 +158,8 @@
                       }
 
                       var vDate_Future = new Date(new Date(vEventDate));
-                      var vDate_Now = new Date();
+                      var vDate_Now = new Date()
+                      var vDate_Now = new Date(vDate_Now.toLocaleString([navigator.language]));
 
                       var vSeconds = Math.floor((vDate_Future - (vDate_Now))/1000);
                       var vMinutes = Math.floor(vSeconds/60);
@@ -189,8 +192,13 @@
                   setTimeout(function run() {
                     getData();
                     var vDate_Now = new Date();
-                    var vMinutes = parseInt((vDate_Now.toLocaleString([navigator.language], { minute: '2-digit' })), 10);
-                    var vHour24 = vDate_Now.getHours()
+                    var vDate_Now = new Date(vDate_Now.toLocaleString([navigator.language]));
+                    //var vMinutes = parseInt((vDate_Now, { minute: '2-digit' })), 10);
+                    //vDate_Now.toLocaleString([navigator.language], { minute: '2-digit' })
+                    //var vMinutes = vDate_Now.getMinutes()
+                    var vMinutes = vDate_Now.toLocaleString([navigator.language], { minute: '2-digit' })
+                    //var vHour24 = vDate_Now.getHours()
+                    var vHour24 = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', hour12: false })
 
                     if (vHour24 < 23 && vMinutes < 58) {
                       var vSleep = ((60 - vMinutes -2) * 60 * 1000)
