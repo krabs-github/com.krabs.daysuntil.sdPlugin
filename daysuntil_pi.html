@@ -26,6 +26,19 @@
           <input class="sdProperty" type="date" id="vKrabs_EventDate" value="" required oninput="setSettings()">
       </div>
       <div class="sdpi-heading">Top Bar Options</div>
+      <div type="checkbox" class="sdpi-item" id="single-check">
+           <div class="sdpi-item-label">Show Top Bar</div>
+           <div class="sdpi-item-value">
+               <div class="sdpi-item-child">
+                   <input id="vKrabs_ShowTopBar" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="setSettings()" checked>
+                   <label for="vKrabs_ShowTopBar" class="sdpi-item-label"><span></span></label>
+               </div>
+           </div>
+      </div>
+      <div class="sdpi-item" id="required_text">
+          <div class="sdpi-item-label">Banner Text</div>
+          <input class="sdProperty" type="text" id="vKrabs_BannerText" size="33" placeholder="Days Until" value="Days Until" required oninput="setSettings()">
+      </div>
       <div type="color" class="sdpi-item" id="colorselection">
         <div class="sdpi-item-label">Bar Color</div>
         <input type="color" class="sdProperty" id="vKrabs_CustomBarColor" value="#ff0000" oninput="setSettings()">

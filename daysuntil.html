@@ -43,6 +43,16 @@
                       tomorrow.setDate(vDate_PlaceHolder.getDate() + 1)
                       var vEventDate = (tomorrow.getFullYear() + "-" + (tomorrow.getMonth()+1) + "-" + (tomorrow.getDate()))
                     }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_ShowTopBar')) {
+                      var vShowTopBar = payload['vKrabs_ShowTopBar'];
+                    } else {
+                      var vShowTopBar = true;
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_BannerText')) {
+                      var vBannerText = payload['vKrabs_BannerText'];
+                    } else {
+                      var vBannerText = "Days Until";
+                    }
                     if (payload != null && payload.hasOwnProperty('vKrabs_CustomBarColor')) {
                       var vCustomBarColor = payload['vKrabs_CustomBarColor'];
                     } else {
@@ -110,6 +120,16 @@
                         var tomorrow =  new Date(tomorrow.toLocaleString([navigator.language]))
                         tomorrow.setDate(vDate_PlaceHolder.getDate() + 1)
                         var vEventDate = (tomorrow.getFullYear() + "-" + (tomorrow.getMonth()+1) + "-" + (tomorrow.getDate()))
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_ShowTopBar')) {
+                        var vShowTopBar = payload['vKrabs_ShowTopBar'];
+                      } else {
+                        var vShowTopBar = true;
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_BannerText')) {
+                        var vBannerText = payload['vKrabs_BannerText'];
+                      } else {
+                        var vBannerText = "Days Until";
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_CustomBarColor')) {
                         var vCustomBarColor = payload['vKrabs_CustomBarColor'];
@@ -179,7 +199,7 @@
                         var imageUrl = "resources/images/expired.png"
                       }
                         KrabsDaysUntil.SetTitle(context, "");
-                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, function(base64Img){
+                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vShowTopBar, vBannerText, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, function(base64Img){
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
                         KrabsDaysUntil.SetTitle(context, "");
@@ -254,7 +274,7 @@
             };
 // End of let KrabsDaysUntil definition
 
-            function convertImgToBase64_text(url, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, callback, outputFormat){
+            function convertImgToBase64_text(url, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vShowTopBar, vBannerText, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, callback, outputFormat){
               var canvas = document.createElement('CANVAS');
               var ctx = canvas.getContext('2d');
               var img = new Image;
@@ -269,16 +289,22 @@
                         ctx.fillStyle = vCustomCountdownBackgroundColor;
                         ctx.fillRect(0, 0, 72, 72);
                       }
-                      ctx.fillStyle = vCustomBarColor;
-                      ctx.fillRect(0, 0, 72, 18);
+                      if (vShowTopBar == true) {
+                        ctx.fillStyle = vCustomBarColor;
+                        ctx.fillRect(0, 0, 72, 18);
+                      }
                     } else if (vDisplay_TimeLeft == 0) {
-                      ctx.fillStyle = vCustomBarColor;
-                      ctx.fillRect(0, 0, 72, 18);
+                      if (vShowTopBar == true) {
+                        ctx.fillStyle = vCustomBarColor;
+                        ctx.fillRect(0, 0, 72, 18);
+                      }
                     } else {
                       ctx.fillStyle = vCustomCountdownBackgroundColor; //expired
                       ctx.fillRect(0, 0, 72, 72);
-                      ctx.fillStyle = vCustomBarColor;
-                      ctx.fillRect(0, 0, 72, 18);
+                      if (vShowTopBar == true) {
+                        ctx.fillStyle = vCustomBarColor;
+                        ctx.fillRect(0, 0, 72, 18);
+                      }
                     }
                     if (vDisplay_TimeLeft > 0) {
                       if (!vDisplay_vEventName_Line1 && !vDisplay_vEventName_Line2) {
@@ -293,7 +319,7 @@
                       ctx.font = "bold 13px Arial";
                       ctx.fillStyle = vCustomBarTextColor;
                       ctx.textAlign = 'center';
-                      ctx.fillText("Days Until", 36, 13);
+                      ctx.fillText(vBannerText, 36, 13);
                       ctx.font = "28px Impact";
                       ctx.fillStyle = vCustomCountdownTextColor;
                       ctx.textAlign = 'center';
@@ -347,12 +373,14 @@
                         ctx.fillStyle = vCustomCountdownBackgroundColor;
                         ctx.fillRect(0, 0, 72, 72);
                       }
-                      ctx.fillStyle = vCustomBarColor;
-                      ctx.fillRect(0, 0, 72, 18);
-                      ctx.font = "bold 13px Arial";
-                      ctx.fillStyle = vCustomBarTextColor;
-                      ctx.textAlign = 'center';
-                      ctx.fillText("Today!", 36, 13);
+                      if (vShowTopBar == true) {
+                        ctx.fillStyle = vCustomBarColor;
+                        ctx.fillRect(0, 0, 72, 18);
+                        ctx.font = "bold 13px Arial";
+                        ctx.fillStyle = vCustomBarTextColor;
+                        ctx.textAlign = 'center';
+                        ctx.fillText("Today!", 36, 13);
+                     }
 
                       ctx.font = "28px Impact";
                       ctx.fillStyle = vCustomCountdownTextColor;
