@@ -303,9 +303,11 @@
                         ctx.shadowColor = "rgba(0,0,0,0.9)";
                         ctx.shadowBlur = 2;
                         ctx.strokeStyle = '#515A5A';
-                        ctx.strokeText("+" + vDisplay_TimeLeft, 36, vPosition);
+                        ctx.strokeText(vDisplay_TimeLeft, 36, vPosition);
+                        //ctx.strokeText("+" + vDisplay_TimeLeft, 36, vPosition);
                       }
-                      ctx.fillText("+" + vDisplay_TimeLeft, 36, vPosition);
+                      ctx.fillText(vDisplay_TimeLeft, 36, vPosition);
+                      //ctx.fillText("+" + vDisplay_TimeLeft, 36, vPosition);
                       ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow off
                       if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
