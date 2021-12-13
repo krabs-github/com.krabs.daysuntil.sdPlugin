@@ -26,7 +26,11 @@
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                       var vEventName_Line1 = payload['vKrabs_EventName'];
                     } else {
+                      if (payload != null && payload.hasOwnProperty('vKrabs_TomorrowText')) {
                       var vEventName_Line1 = payload['vKrabs_TomorrowText'];
+                      } else {
+                      var vEventName_Line1 = "Tomorrow";
+                      }
                     }
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                       var vEventName_Line2 = payload['vKrabs_EventName2'];
@@ -109,7 +113,11 @@
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                         var vEventName_Line1 = payload['vKrabs_EventName'];
                       } else {
+                        if (payload != null && payload.hasOwnProperty('vKrabs_TomorrowText')) {
                         var vEventName_Line1 = payload['vKrabs_TomorrowText'];
+                        } else {
+                        var vEventName_Line1 = "Tomorrow";
+                        }
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                         var vEventName_Line2 = payload['vKrabs_EventName2'];
