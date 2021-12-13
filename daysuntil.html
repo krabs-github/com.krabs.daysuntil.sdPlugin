@@ -26,7 +26,7 @@
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                       var vEventName_Line1 = payload['vKrabs_EventName'];
                     } else {
-                      var vEventName_Line1 = "Tomorrow";
+                      var vEventName_Line1 = payload['vKrabs_TomorrowText'];
                     }
                     if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                       var vEventName_Line2 = payload['vKrabs_EventName2'];
@@ -62,6 +62,11 @@
                       var vCustomBarTextColor = payload['vKrabs_CustomBarTextColor'];
                     } else {
                       var vCustomBarTextColor = "white";
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_TodayText')) {
+                      var vTodayText = payload['vKrabs_TodayText'];
+                    } else {
+                      var vTodayText = "Today";
                     }
                     if (payload != null && payload.hasOwnProperty('vKrabs_CustomCountdownBackgroundColor')) {
                       var vCustomCountdownBackgroundColor = payload['vKrabs_CustomCountdownBackgroundColor'];
@@ -104,7 +109,7 @@
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName')) {
                         var vEventName_Line1 = payload['vKrabs_EventName'];
                       } else {
-                        var vEventName_Line1 = "Tomorrow";
+                        var vEventName_Line1 = payload['vKrabs_TomorrowText'];
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_EventName2')) {
                         var vEventName_Line2 = payload['vKrabs_EventName2'];
@@ -140,6 +145,11 @@
                         var vCustomBarTextColor = payload['vKrabs_CustomBarTextColor'];
                       } else {
                         var vCustomBarTextColor = "white";
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_TodayText')) {
+                        var vTodayText = payload['vKrabs_TodayText'];
+                      } else {
+                        var vTodayText = "Today";
                       }
                       if (payload != null && payload.hasOwnProperty('vKrabs_CustomCountdownBackgroundColor')) {
                         var vCustomCountdownBackgroundColor = payload['vKrabs_CustomCountdownBackgroundColor'];
@@ -199,7 +209,7 @@
                         var imageUrl = "resources/images/expired.png"
                       }
                         KrabsDaysUntil.SetTitle(context, "");
-                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vShowTopBar, vBannerText, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, function(base64Img){
+                        convertImgToBase64_text(imageUrl, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vShowTopBar, vBannerText, vCustomBarColor, vCustomBarTextColor, vTodayText, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, function(base64Img){
                         var vAvatarBase64 = base64Img;
                         setImage(context, vAvatarBase64);
                         KrabsDaysUntil.SetTitle(context, "");
@@ -274,7 +284,7 @@
             };
 // End of let KrabsDaysUntil definition
 
-            function convertImgToBase64_text(url, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vShowTopBar, vBannerText, vCustomBarColor, vCustomBarTextColor, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, callback, outputFormat){
+            function convertImgToBase64_text(url, vDisplay_vEventName_Line1, vDisplay_vEventName_Line2, vDisplay_TimeLeft, vShowTopBar, vBannerText, vCustomBarColor, vCustomBarTextColor, vTodayText, vCustomCountdownBackgroundColor, vCustomCountdownTextColor, vCustomEventBackgroundColor, vCustomEventTextColor, vOverlayIcon, vReadability, callback, outputFormat){
               var canvas = document.createElement('CANVAS');
               var ctx = canvas.getContext('2d');
               var img = new Image;
@@ -379,7 +389,7 @@
                         ctx.font = "bold 13px Arial";
                         ctx.fillStyle = vCustomBarTextColor;
                         ctx.textAlign = 'center';
-                        ctx.fillText("Today!", 36, 13);
+                        ctx.fillText(vTodayText + "!", 36, 13);
                      }
 
                       ctx.font = "28px Impact";
