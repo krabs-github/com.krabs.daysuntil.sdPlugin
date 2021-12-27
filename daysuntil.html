@@ -188,8 +188,11 @@
                       }
 
                       var vDate_Future = new Date(new Date(vEventDate));
+                      var vDate_Future = new Date(vDate_Future.toLocaleString([navigator.language]));
+                      var vDate_Future = vDate_Future.setHours(0,0,0,0)
                       var vDate_Now = new Date()
                       var vDate_Now = new Date(vDate_Now.toLocaleString([navigator.language]));
+                      var vDate_Now = vDate_Now.setHours(0,0,0,0)
 
                       var vSeconds = Math.floor((vDate_Future - (vDate_Now))/1000);
                       var vMinutes = Math.floor(vSeconds/60);
