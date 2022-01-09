@@ -4,6 +4,7 @@
         <title>com.krabs.daysuntil.action</title>
         <meta charset="utf-8" />
         <script src="resources/scripts/timer.js"></script>
+        <script src="resources/scripts/moment.js"></script>
     </head>
     <body>
         <script>
@@ -187,24 +188,29 @@
                         var vCustomImage = "resources/images/actionDefaultImage.png";
                       }
 
-                      var vDate_Future = new Date(new Date(vEventDate));
-                      var vDate_Future = new Date(vDate_Future.toLocaleString([navigator.language]));
-                      var vDate_Future = vDate_Future.setHours(0,0,0,0)
-                      var vDate_Now = new Date()
+                      var vDate_Future = new Date(vEventDate);
+                      var vDate_Future = new Date(vEventDate.toLocaleString([navigator.language]));
+                      var vDate_Future = vDate_Future.setHours(0,1,0,0)
+                      var vDate_Now = new Date();
                       var vDate_Now = new Date(vDate_Now.toLocaleString([navigator.language]));
-                      var vDate_Now = vDate_Now.setHours(0,0,0,0)
-
-                      var vSeconds = Math.floor((vDate_Future - (vDate_Now))/1000);
-                      var vMinutes = Math.floor(vSeconds/60);
-                      var vHours = Math.floor(vMinutes/60);
-                      var vDays = Math.round(Math.floor(vHours/24));
-
-                      var vHours = vHours-(vDays*24);
-                      var vMinutes = vMinutes-(vDays*24*60)-(vHours*60);
-                      var vSeconds = vSeconds-(vDays*24*60*60)-(vHours*60*60)-(vMinutes*60);
+                      var vDate_Now = vDate_Now.setHours(0,1,0,0)
                       var vDisplay_vEventName_Line1 = vEventName_Line1
                       var vDisplay_vEventName_Line2 = vEventName_Line2
-                      var vDisplay_TimeLeft = (vDays+1)
+                      vFuture = moment(vDate_Future);
+                      vNow = moment().startOf('day');
+                      console.log("F: " + vFuture)
+                      console.log("N: " + vNow)
+                      //var vDisplay_TimeLeft = vFuture.diff(vNow, 'days');
+                      var vDisplay_TimeLeft = moment.duration(vFuture.diff(vNow)).asDays();
+                      console.log("D: " + vDisplay_TimeLeft)
+                      if (vDisplay_TimeLeft > 0 && vDisplay_TimeLeft < 1) {
+                        var vDisplay_TimeLeft = 1
+                        console.log("Calced: " + vDisplay_TimeLeft)
+                      }
+                      if (vDisplay_TimeLeft < 0 && vDisplay_TimeLeft > -1) {
+                        var vDisplay_TimeLeft = 0
+                        console.log("Calced: " + vDisplay_TimeLeft)
+                      }
 
                       if (vDisplay_TimeLeft > 0 || vDisplay_TimeLeft == 0) {
                         var imageUrl = vCustomImage;
