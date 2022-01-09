@@ -188,28 +188,16 @@
                         var vCustomImage = "resources/images/actionDefaultImage.png";
                       }
 
-                      var vDate_Future = new Date(vEventDate);
-                      var vDate_Future = new Date(vEventDate.toLocaleString([navigator.language]));
-                      var vDate_Future = vDate_Future.setHours(0,1,0,0)
-                      var vDate_Now = new Date();
-                      var vDate_Now = new Date(vDate_Now.toLocaleString([navigator.language]));
-                      var vDate_Now = vDate_Now.setHours(0,1,0,0)
                       var vDisplay_vEventName_Line1 = vEventName_Line1
                       var vDisplay_vEventName_Line2 = vEventName_Line2
-                      vFuture = moment(vDate_Future);
+                      vFuture = moment(vEventDate).startOf('day');
                       vNow = moment().startOf('day');
-                      console.log("F: " + vFuture)
-                      console.log("N: " + vNow)
-                      //var vDisplay_TimeLeft = vFuture.diff(vNow, 'days');
-                      var vDisplay_TimeLeft = moment.duration(vFuture.diff(vNow)).asDays();
-                      console.log("D: " + vDisplay_TimeLeft)
+                      var vDisplay_TimeLeft = Math.floor(moment.duration(vFuture.diff(vNow)).asDays());
                       if (vDisplay_TimeLeft > 0 && vDisplay_TimeLeft < 1) {
                         var vDisplay_TimeLeft = 1
-                        console.log("Calced: " + vDisplay_TimeLeft)
                       }
                       if (vDisplay_TimeLeft < 0 && vDisplay_TimeLeft > -1) {
                         var vDisplay_TimeLeft = 0
-                        console.log("Calced: " + vDisplay_TimeLeft)
                       }
 
                       if (vDisplay_TimeLeft > 0 || vDisplay_TimeLeft == 0) {
@@ -248,16 +236,6 @@
                       setTimeout(run, 1000);
                     }
                   }, 1000);
-                  /*setTimeout(function run() {
-                    getData();
-                    var payload = settingsCache[context];
-                    var vEventName_Line1 = payload['vKrabs_EventName'];
-                    var vEventName_Line2 = payload['vKrabs_EventName2'];
-                    if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
-                      var vEventDate = payload['vKrabs_EventDate'];
-                    }
-                    setTimeout(run, 1000);
-                  }, 1000);*/
                 },
 // End of fKrabs_DaysUntil function
 
@@ -284,11 +262,8 @@
                     };
                     websocket.send(JSON.stringify(json));
                     settingsCache[context] = settings;
-                    //console.log("New Settings", settings);
-                    //console.log("New JSON", JSON.stringify(json));
                 },
                 didReceiveSettings: function (context, payload) {
-                  //console.log("Did receive: ", settings)
                 }
             };
 // End of let KrabsDaysUntil definition
@@ -349,10 +324,8 @@
                         ctx.shadowBlur = 2;
                         ctx.strokeStyle = '#515A5A';
                         ctx.strokeText(vDisplay_TimeLeft, 36, vPosition);
-                        //ctx.strokeText("+" + vDisplay_TimeLeft, 36, vPosition);
                       }
                       ctx.fillText(vDisplay_TimeLeft, 36, vPosition);
-                      //ctx.fillText("+" + vDisplay_TimeLeft, 36, vPosition);
                       ctx.shadowColor = "rgba(0,0,0,0.0)"; // reset shadow off
                       if (vDisplay_vEventName_Line1 && vDisplay_vEventName_Line2) {
                         ctx.font = "bold 13px Arial";
